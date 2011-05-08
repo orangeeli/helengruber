@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @work_piece.name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @work_piece.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @work_piece.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_work_piece_path(@work_piece) %> |
+<%= link_to 'Back', work_pieces_path %>

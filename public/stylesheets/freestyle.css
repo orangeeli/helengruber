@@ -1,0 +1,139 @@
+/** Default style rules **/
+* {
+  margin: 0; }
+
+/** normal css rule **/
+/*line-height: 1.8em;*/
+/*html, body {font-family: Euphemia UCAS, Century Gothic, Verdana, sans-serif; text-align:center; font-size: 0.625em;}*/
+/** sassy css **/
+body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: Euphemia UCAS, Century Gothic, Verdana, sans-serif;
+  text-align: center;
+  font-size: 0.625em; }
+
+html {
+  overflow-y: auto;
+  background-color: transparent;
+  font-family: Euphemia UCAS, Century Gothic, Verdana, sans-serif;
+  text-align: center;
+  font-size: 0.625em; }
+
+/** Scroll bars **/
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px; }
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+  height: 30px;
+  display: block;
+  background-color: transparent; }
+
+::-webkit-scrollbar-track-piece {
+  background-color: #3b3b3b;
+  -webkit-border-radius: 6px; }
+
+::-webkit-scrollbar-thumb:vertical {
+  height: 50px;
+  background-color: #666;
+  border: 1px solid #eee;
+  -webkit-border-radius: 6px; }
+
+#container {
+  min-height: 50em;
+  margin: 0 auto;
+  width: 60em;
+  max-width: 100%;
+  min-width: 60em;
+  text-align: left;
+  font-size: 2em; }
+
+a {
+  text-decoration: none;
+  color: #606060; }
+
+a:hover {
+  color: #000000; }
+
+/*a:active{color: #3F8692;}*/
+a.selected {
+  color: #3F8692; }
+
+/** Header: Menu **/
+#menu {
+  padding: 5em 0;
+  color: #606060;
+  min-width: 60em; }
+
+#home {
+  float: left;
+  word-spacing: .01em; }
+
+#work {
+  float: left;
+  margin-right: 2em;
+  /*margin-left: 20em;*/
+  /*margin-left: 23em;*/
+  margin-left: 26.3em; }
+
+#work ul li, #sub_menu ul li {
+  display: inline-block;
+  list-style-type: none;
+  padding-left: 1em; }
+
+#contact {
+  word-spacing: .01em;
+  float: right;
+  /*margin-right: 5em;*/ }
+
+#main_menu {
+  padding-bottom: 2em; }
+
+#sub_menu {
+  float: right;
+  margin-right: 14.45em; }
+
+#sub_menu_art ul {
+  padding: 0;
+  border-top: 0.35px solid #606060; }
+
+#sub_menu_art ul li:first-child {
+  padding: 0; }
+
+/** Section: Body **/
+/*max-width:100%;*/
+/*margin-left: 6.5em;*/
+/*margin-right: 11.5em;*/
+/*margin-right: 8.5em;*/
+.content {
+  clear: both;
+  margin: 0 auto;
+  width: 550px;
+  padding: 30px 10px; }
+
+.workpiece-holder {
+  margin: 0 auto; }
+
+.workpiece-description {
+  margin-top: 1em;
+  color: #000;
+  font-size: 1.1em;
+  text-align: right; }
+
+.workpiece-metainfo {
+  font-size: .8em;
+  color: #000;
+  text-align: right; }
+
+.inner-border {
+  margin: 1em; }
+
+.outer-border {
+  border: 0.1em solid #000; }
