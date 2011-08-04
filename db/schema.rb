@@ -10,7 +10,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110508214207) do
+ActiveRecord::Schema.define(:version => 20110626153511) do
+
+  create_table "sections", :force => true do |t|
+    t.string   "name"
+    t.text     "details"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "temps", :force => true do |t|
+    t.decimal  "latitude",   :precision => 15, :scale => 10
+    t.decimal  "longitude",  :precision => 15, :scale => 10
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "login"
+    t.string   "password"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "work_graphics", :force => true do |t|
+    t.string   "file_name"
+    t.string   "content_type"
+    t.integer  "file_size"
+    t.datetime "updated_at"
+    t.integer  "work_piece_id"
+    t.datetime "created_at"
+  end
 
   create_table "work_pieces", :force => true do |t|
     t.string   "name"
@@ -18,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20110508214207) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "section_id"
   end
 
 end

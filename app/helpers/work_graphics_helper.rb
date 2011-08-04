@@ -1,0 +1,2 @@
+module WorkGraphicsHelper
+end

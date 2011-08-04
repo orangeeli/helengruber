@@ -1,27 +1,28 @@
-<h1>Listing work_pieces</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @work_pieces.each do |work_piece| %>
-  <tr>
-    <td><%= work_piece.name %></td>
-    <td><%= work_piece.title %></td>
-    <td><%= work_piece.content %></td>
-    <td><%= link_to 'Show', work_piece %></td>
-    <td><%= link_to 'Edit', edit_work_piece_path(work_piece) %></td>
-    <td><%= link_to 'Destroy', work_piece, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<div class="content">
 
+  <div class="workpiece-holder">
+
+    <div class="outer-border">
+      <div class="inner-border">
+        <img src="/images/Mücken_ZEIT.png" alt="Work piece test" width="500px" />
+      </div>
+    </div>
+  </div>
+  <div class="workpiece-description">
+    Work Piece info <%= work_piece.content %>
+  </div>
+  <div class="workpiece-metainfo">
+    Work piece meta info <%= work_piece.title %> 
+    <%= work_piece.name %>
+  </div>
+</div>
+
+<%= link_to 'Show', work_piece %>
+<%= link_to 'Edit', edit_work_piece_path(work_piece) %>
+<%= link_to 'Destroy', work_piece, :confirm => 'Are you sure?', :method => :delete %>
+
+<% end %>
 <br />
 
 <%= link_to 'New Work piece', new_work_piece_path %>

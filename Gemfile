@@ -30,8 +30,13 @@ gem 'capistrano'
 #   gem 'webrat'
 # end
 
-
 # Sassy CSS
 # Style with attitude
 gem 'sass'
 
+# PaperClip
+gem 'paperclip', "~> 2.3"
+
+
+# HAML
+gem 'haml'

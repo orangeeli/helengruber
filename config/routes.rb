@@ -1,7 +1,13 @@
 HelenGruber::Application.routes.draw do
-  resources :work_pieces
+  resources :users
 
-  get "home/index"
+  resources :sections
+
+  resources :work_pieces do
+    resources :work_graphics
+  end
+
+  get "work_pieces/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -54,7 +60,7 @@ HelenGruber::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "home#index"
+  root :to => "work_pieces#index"
 
   # See how all your routes lay out with "rake routes"
 
