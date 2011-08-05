@@ -137,3 +137,6 @@ a.selected {
 
 .outer-border {
   border: 0.1em solid #000; }
+
+.file-upload-iframe-form {
+  display: none; }

@@ -63,7 +63,12 @@ Configuration = {
                 Util.removeElementClass(Configuration.selected_style_name);
             }
         });
+    },
+
+    setFormBehavior : function(){
+        
     }
+
 };
 Ajax = {
     htmlDataType : 'html',
