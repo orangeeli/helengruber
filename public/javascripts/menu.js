@@ -66,7 +66,13 @@ Configuration = {
     },
 
     setFormBehavior : function(){
-        
+      
+      $('form').each(function(){
+        // add on submit behavior
+        // add on iframe loaded behvior
+        // force page refresh
+         
+      }):
     }
 
 };
