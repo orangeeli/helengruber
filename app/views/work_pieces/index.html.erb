@@ -3,11 +3,14 @@
 
   <div class="workpiece-holder">
 
-    <div class="outer-border">
-      <div class="inner-border">
-        <img src="/images/Mücken_ZEIT.png" alt="Work piece test" width="500px" />
-      </div>
-    </div>
+    <% work_piece.work_graphics.each do |work_graphic| %>
+      <div class="outer-border">
+        <div class="inner-border">
+          <img src='<%=work_graphic.graphic_file %>' alt="Work piece test" width="500px" />
+        </div>
+      </div> 
+    <% end %>
+
   </div>
   <div class="workpiece-description">
     Work Piece info <%= work_piece.content %>
