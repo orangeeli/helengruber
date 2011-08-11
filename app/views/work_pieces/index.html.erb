@@ -1,3 +1,8 @@
+<% content_for :menu do %>
+  <%= render "shared/menu" %>
+<% end %>
+
+
 <% @work_pieces.each do |work_piece| %>
 <div class="content">
 
@@ -21,11 +26,15 @@
   </div>
 </div>
 
-<%= link_to 'Show', work_piece %>
-<%= link_to 'Edit', edit_work_piece_path(work_piece) %>
-<%= link_to 'Destroy', work_piece, :confirm => 'Are you sure?', :method => :delete %>
+<% if current_user %>
+  <%= link_to 'Show', work_piece %>
+  <%= link_to 'Edit', edit_work_piece_path(work_piece) %>
+  <%= link_to 'Destroy', work_piece, :confirm => 'Are you sure?', :method => :delete %>
+<% end %>
 
 <% end %>
 <br />
 
-<%= link_to 'New Work piece', new_work_piece_path %>
+<% if current_user %>
+  <%= link_to 'New Work piece', new_work_piece_path %>
+<% end %>

@@ -1,4 +1,7 @@
 class WorkPiecesController < ApplicationController
+
+  before_filter :authenticate, :except => [:index, :show]
+
   # GET /work_pieces
   # GET /work_pieces.xml
   def index
