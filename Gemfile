@@ -5,7 +5,7 @@ gem 'rails', '3.0.5'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'mysql2', '< 0.3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -40,3 +40,9 @@ gem 'paperclip', "~> 2.3"
 
 # HAML
 gem 'haml'
+
+# locking rake version
+gem "rake", "0.8.7"
+
+# encryption
+gem 'bcrypt-ruby', :require => 'bcrypt'

@@ -15,28 +15,27 @@
 
 <div id="container">
         <header>
+                <div id="user_nav">
+  		  <% if current_user %>
+    		    Logged in as <%= current_user.email %>.
+    		    <%= link_to "Log out", log_out_path %>
+  		  <% else %>
+    		    <!--%= link_to "log in", log_in_path %-->
+  		  <% end %>
+		</div>
+
+		<% flash.each do |name, msg| %>
+  		  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+		<% end %>
+
                 <div id="menu">
-                <div id="main_menu">
-                    <!-- href value should be the application root -->
-                    <div id="home" class="menu_link"><a rel="home" href="/">Helen Gruber</a></div><!-- 77.65px -->
-                    <div id="work">
-                        <ul>
-                            <li id="infographics" class="menu_link" ><a rel="infographics" href="#">Infographics</a></li>
-                            <li id="art" class="menu_link"><a rel="art" href="#">Art</a></li>
-                            <li id="information" class="menu_link"><a rel="information" href="#">Information</a></li>
-                        </ul>
-                    </div>
-                    <div id="contact" class="menu_link"><a rel="contact" href="#">Contact</a></div><!-- 45px -->
-                </div>
-                <div id="sub_menu"></div>
-                <div id="sections"></div>
-            </div>
+                  <%= yield :menu %>
+            	</div>
         </header>
 
         <section>
             <div id="body">
-<%= yield %>
-
+	      <%= yield %>
             </div>
         </section>
         <footer>

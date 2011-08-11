@@ -1,4 +1,6 @@
 class SectionsController < ApplicationController
+  before_filter :authenticate
+
   # GET /sections
   # GET /sections.xml
   def index

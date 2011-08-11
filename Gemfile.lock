@@ -29,23 +29,25 @@ GEM
       activesupport (= 3.0.5)
     activesupport (3.0.5)
     archive-tar-minitar (0.5.2)
-    arel (2.0.9)
+    arel (2.0.10)
+    bcrypt-ruby (2.1.4)
     builder (2.1.2)
-    capistrano (2.5.19)
+    capistrano (2.8.0)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
-      net-ssh-gateway (>= 1.0.0)
+      net-ssh-gateway (>= 1.1.0)
+    cocaine (0.1.0)
     columnize (0.3.4)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    haml (3.1.1)
-    highline (1.6.1)
-    i18n (0.5.0)
+    haml (3.1.2)
+    highline (1.6.2)
+    i18n (0.6.0)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
-    mail (2.2.15)
+    mail (2.2.19)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -56,15 +58,17 @@ GEM
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
       net-ssh (>= 2.0.9)
-    net-ssh (2.0.24)
-    net-ssh-gateway (1.0.1)
+    net-ssh (2.1.4)
+    net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
-    paperclip (2.3.8)
-      activerecord
-      activesupport
-    polyglot (0.3.1)
-    rack (1.2.2)
-    rack-mount (0.6.13)
+    paperclip (2.3.16)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+      cocaine (>= 0.0.2)
+      mime-types
+    polyglot (0.3.2)
+    rack (1.2.3)
+    rack-mount (0.6.14)
       rack (>= 1.0.0)
     rack-test (0.5.7)
       rack (>= 1.0)
@@ -92,20 +96,23 @@ GEM
       ruby-debug-base19 (>= 0.11.19)
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
-    sass (3.1.1)
+    sass (3.1.7)
     thor (0.14.6)
-    treetop (1.4.9)
+    treetop (1.4.10)
+      polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.25)
+    tzinfo (0.3.29)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby
   capistrano
   haml
-  mysql2
+  mysql2 (< 0.3)
   paperclip (~> 2.3)
   rails (= 3.0.5)
+  rake (= 0.8.7)
   ruby-debug19
   sass
