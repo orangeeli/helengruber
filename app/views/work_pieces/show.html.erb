@@ -19,6 +19,12 @@
   <%= @work_piece.content %>
 </p>
 
+<p>
+  <b>Section:</b>
+  <%= @work_piece.section.name %>
+</p>
+
+
 <h2>Work Graphics</h2>
 <% @work_piece.work_graphics.each do |work_graphic| %>
   <div>
