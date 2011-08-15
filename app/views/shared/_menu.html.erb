@@ -1,12 +1,24 @@
 <div id="main_menu">
 
                     <!-- href value should be the application root -->
-                    <div id="home" class="menu_link"><a rel="home" href="/">Helen Gruber</a></div><!-- 77.65px -->
+                    <div id="home" class="menu_link">
+ 		      <!--a rel="home" href="/">Helen Gruber</a-->
+ 		      <%= link_to 'Helen Gruber', root_path %>
+                    </div><!-- 77.65px -->
                     <div id="work">
                         <ul>
-                            <li id="infographics" class="menu_link" ><a rel="infographics" href="#">Infographics</a></li>
-                            <li id="art" class="menu_link"><a rel="art" href="#">Art</a></li>
-                            <li id="information" class="menu_link"><a rel="information" href="#">Information</a></li>
+                            <li id="infographics" class="menu_link" >
+                              <!--a rel="infographics" href="#">Infographics</a-->
+  			      <%= link_to 'Infographics', work_pieces_path(:section_id => 1)  %>
+                            </li>
+                            <li id="art" class="menu_link">
+			      <!--a rel="art" href="#">Art</a-->
+			      <%= link_to 'Art', work_pieces_path(:section_id => 2) %>
+                            </li>
+                            <li id="information" class="menu_link">
+     			      <!--a rel="information" href="#">Information</a-->
+  			      <%= link_to 'Information', work_pieces_path(:section_id => 3)%>
+                            </li>
                         </ul>
                     </div>
                     <div id="contact" class="menu_link"><a rel="contact" href="#">Contact</a></div><!-- 45px -->

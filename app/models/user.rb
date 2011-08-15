@@ -5,10 +5,10 @@ class User < ActiveRecord::Base
   # callbacks
   before_save :encrypt_password
 
-  
   # validations
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
+  validates_presence_of :login, :on => :create
   validates_uniqueness_of :login
  
   # methods
@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
     end
   end 
 
-  private
+  #private
   
   def encrypt_password
     if password.present?

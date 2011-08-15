@@ -38,3 +38,6 @@
 <% if current_user %>
   <%= link_to 'New Work piece', new_work_piece_path %>
 <% end %>
+<div class="apple_pagination">
+  <%= will_paginate @work_pieces, :params => {:section_id => @section_id} %>
+</div>
