@@ -49,3 +49,5 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 
 # pagination
 gem 'will_paginate', '~> 3.0'
+
+# rspec => should add later

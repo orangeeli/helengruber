@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-#one:
-#  file_name: MyString
-#  content_type: MyString
-#  file_size: 1
-#  updated_at: 2011-05-15 16:59:56
-#  work_piece: 
+one:
+  graphic_file_name: 
+  graphic_content_type: 
+  graphic_file_size: 1
+  graphic_updated_at: 2011-05-15 16:59:56
+  work_piece: 1
 
 #two:
 #  file_name: MyString
