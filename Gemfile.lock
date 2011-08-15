@@ -102,6 +102,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
+    will_paginate (3.0.0)
 
 PLATFORMS
   ruby
@@ -116,3 +117,4 @@ DEPENDENCIES
   rake (= 0.8.7)
   ruby-debug19
   sass
+  will_paginate (~> 3.0)

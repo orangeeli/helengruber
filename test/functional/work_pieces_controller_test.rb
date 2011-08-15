@@ -2,7 +2,7 @@ require 'test_helper'
 
 class WorkPiecesControllerTest < ActionController::TestCase
   setup do
-    @work_piece = work_pieces(:one)
+    @work_piece = work_pieces(:first_work_piece)
   end
 
   test "should get index" do

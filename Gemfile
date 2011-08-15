@@ -46,3 +46,6 @@ gem "rake", "0.8.7"
 
 # encryption
 gem 'bcrypt-ruby', :require => 'bcrypt'
+
+# pagination
+gem 'will_paginate', '~> 3.0'

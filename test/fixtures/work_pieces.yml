@@ -1,11 +1,16 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  title: MyString
-  content: MyText
+first_work_piece:
+  name:  first work piece
+  title: first work piece
+  content: first work piece
 
-two:
-  name: MyString
-  title: MyString
-  content: MyText
+two_work_piece:
+  name: second work piece
+  title: second work piece
+  content: second work piece
+
+three_work_piece:
+  name: second work piece
+  title: second work piece
+  content: second work piece
