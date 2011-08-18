@@ -1,5 +1,13 @@
 module ApplicationHelper
 
+  def link_to_section(section_name, current_section_id, section_id)
+     if current_section_id.to_s.eql? section_id.to_s
+       link_to section_name, work_pieces_path(:section_id => section_id), {:class=>'selected'}
+     else
+       link_to section_name, work_pieces_path(:section_id => section_id)
+     end
+  end
+
   def custom_form_for(name, *args, &block)
     options = args.extract_options!
   

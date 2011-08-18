@@ -1,5 +1,5 @@
 <% content_for :menu do %>
-  <%= render "shared/menu" %>
+  <%= render "shared/menu"%>
 <% end %>
 
 
@@ -11,33 +11,35 @@
     <% work_piece.work_graphics.each do |work_graphic| %>
       <div class="outer-border">
         <div class="inner-border">
-          <img src='<%=work_graphic.graphic_file %>' alt="Work piece test" width="500px" />
+          <img src='<%=work_graphic.graphic_file %>' alt="Work piece test" />
         </div>
       </div> 
     <% end %>
 
   </div>
   <div class="workpiece-description">
-    Work Piece info <%= work_piece.content %>
+    <%= work_piece.content %>
   </div>
   <div class="workpiece-metainfo">
-    Work piece meta info <%= work_piece.title %> 
+    <%= work_piece.title %> 
     <%= work_piece.name %>
   </div>
 </div>
 
 <% if current_user %>
-  <%= link_to 'Show', work_piece %>
-  <%= link_to 'Edit', edit_work_piece_path(work_piece) %>
-  <%= link_to 'Destroy', work_piece, :confirm => 'Are you sure?', :method => :delete %>
+  <div class="actions">
+    <%= link_to 'Show', work_piece %>
+    <%= link_to 'Edit', edit_work_piece_path(work_piece) %>
+    <%= link_to 'Destroy', work_piece, :confirm => 'Are you sure?', :method => :delete %>
+  </div>
 <% end %>
 
 <% end %>
-<br />
-
 <% if current_user %>
-  <%= link_to 'New Work piece', new_work_piece_path %>
+  <div class="actions">
+    <%= link_to 'New Work piece', new_work_piece_path %>
+  </div>
 <% end %>
-<div class="apple_pagination">
+<div class="pagination">
   <%= will_paginate @work_pieces, :params => {:section_id => @section_id} %>
 </div>
