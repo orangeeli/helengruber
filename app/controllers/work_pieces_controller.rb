@@ -10,14 +10,16 @@ class WorkPiecesController < ApplicationController
 
     if !params[:section_id].nil? && !(params[:section_id].eql? "0")
       @work_pieces = WorkPiece.where(:section_id => params[:section_id]).paginate(:page => params[:page]).order('id DESC')
-      @section_id = params[:section_id]
+      @current_section_id = params[:section_id]
     else
       @work_pieces = WorkPiece.paginate(:page => params[:page]).order('id DESC')
-      @section_id = 0
+      @current_section_id = 0
     end
 
+    @sections = Section.all
+
     respond_to do |format|
-      format.html # index.html.erb
+      format.html #index.html.erb
       format.xml  { render :xml => @work_pieces }
     end
   end

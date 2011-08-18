@@ -45,6 +45,7 @@ GEM
     haml (3.1.2)
     highline (1.6.2)
     i18n (0.6.0)
+    json (1.5.3)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
     mail (2.2.19)
@@ -111,6 +112,7 @@ DEPENDENCIES
   bcrypt-ruby
   capistrano
   haml
+  json (~> 1.5.3)
   mysql2 (< 0.3)
   paperclip (~> 2.3)
   rails (= 3.0.5)

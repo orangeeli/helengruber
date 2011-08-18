@@ -2,7 +2,11 @@ require 'test_helper'
 
 class SectionsControllerTest < ActionController::TestCase
   setup do
-    @section = sections(:one)
+    @section = sections(:first_section)
+
+    # mock login (should in a test helper)
+    user = users(:admin)
+    session[:user_id] = user.id
   end
 
   test "should get index" do
