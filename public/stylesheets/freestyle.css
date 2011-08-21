@@ -39,6 +39,13 @@ header{
   margin-bottom: 2em;
 }
 
+footer {
+  border-top: 1px solid #f0f0f0;
+  margin-top: 1em;
+  padding: 1em 2.5em;
+  font-size: .7em;
+}
+
 /** Scroll bars **/
 ::-webkit-scrollbar {
   width: 10px;
@@ -135,14 +142,14 @@ a.selected {
   clear: both;
   /*margin: 0 auto;*/
   width: 550px;
-  padding: 30px 10px; }
+  padding: 30px 0px; }
 
 .workpiece-holder {
   margin: 0 auto; }
 
 .workpiece-description {
   margin-top: 1em;
-  margin-left: 1em;
+  /*margin-left: 1em;*/
   color: #000;
   font-size: 1.1em;
   /*text-align: right;*/ }
@@ -150,14 +157,19 @@ a.selected {
 .workpiece-metainfo {
   font-size: .8em;
   color: #000;
-  margin-left: 1.5em;
+  /*margin-left: 1.5em;*/
   /*text-align: right;*/ }
 
 .inner-border {
-  margin: 1em; }
+  /*margin-left: 1em;*/ 
+  border: .3em solid #f0f0f0;
+  padding: .5em;
+}
 
 .outer-border {
-  /*border: 0.1em solid #000;*/ }
+  /*border: 0.1em solid #000;*/ 
+  margin-bottom: 2em;
+}
 
 .file-upload-iframe-form {
   display: none; }
@@ -200,7 +212,8 @@ a.selected {
     margin-left: 1em; }
 
 .actions {
-  margin-left: 1.9em;
+  /*margin-left: 1.9em;*/
+  margin-top: 2em;
 }
 
 #user_nav{
@@ -211,7 +224,7 @@ a.selected {
   height: 2em;
   line-height: 2.25em;
 }
-#messages .success, .notice{
+#messages .success, #messages .notice{
   border: .1em solid #7AD98F;
   background-color: #AFE5BB;/*#94D9A3;*/
   color: #0E6020;
