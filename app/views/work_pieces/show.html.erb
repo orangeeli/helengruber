@@ -2,8 +2,6 @@
   <%= render "shared/menu" %>
 <% end %>
 
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Name:</b>
   <%= @work_piece.name %>
@@ -24,29 +22,34 @@
   <%= @work_piece.section.name %>
 </p>
 
+<div id="work_graphics">
+  <h2>Work Graphics</h2>
+  <% @work_piece.work_graphics.each do |work_graphic| %>
+    <div>
+      <img src='<%=work_graphic.graphic_file %>' />
+    </div>
+    <br />
+    <br />
+  <% end %>
 
-<h2>Work Graphics</h2>
-<% @work_piece.work_graphics.each do |work_graphic| %>
-  <div>
-    <img src='<%=work_graphic.graphic_file %>' />
-  </div>
-  <br />
-  <br />
-<% end %>
+  <!-- form file upload TODO: change the name to identify the file upload -->
+  <% if current_user %>
+    <%= custom_form_for([@work_piece, @work_piece.work_graphics.build]) do |f| %>
+      <div class="field file_inputs">
+        <%= f.file_field :graphic, :class=>'file' %>
+        <!--div class="fakefile">
+          <input class="fake_input" />
+          <input type="button" value="Choose File" />
+        </div--> 
+      </div>
+      <div class="form_actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
 
-<!-- form file upload TODO: change the name to identify the file upload -->
-<% if current_user %>
-<%= custom_form_for([@work_piece, @work_piece.work_graphics.build]) do |f| %>
-  <div class="field">
-    <%= f.file_field :graphic %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-
-
-<%= link_to 'Edit', edit_work_piece_path(@work_piece) %> |
-<%= link_to 'Back', work_pieces_path %>
-<% end %>
+    <div>
+      <%= link_to 'Edit', edit_work_piece_path(@work_piece) %> |
+      <%= link_to 'Back', work_pieces_path %>
+    </div>
+  <% end %>
+</div>

@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :section_id %><br />
+    <%= collection_select(:work_piece, :section_id, Section.all, :id, :name, {}, {:class =>'makeMeFancy', :data_html_text => :name}) %>
+  </div>
+
+  <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, {:placeholder=>'Enter a name'} %>
   </div>
@@ -22,11 +27,6 @@
   <div class="field">
     <%= f.label :content %><br />
     <%= f.text_area :content, {:placeholder=>'Describe your work!'}%>
-  </div>
- 
-  <div class="field">
-    <%= f.label :section_id %><br />
-    <%= collection_select(:work_piece, :section_id, Section.all, :id, :name) %>
   </div>
 
   <div class="form_actions">

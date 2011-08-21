@@ -2,8 +2,14 @@
 * {
   margin: 0; }
 
-input, textarea, fieldset, form{
+input, textarea, fieldset, form, select{
   padding: 0; outline: none; border: 0;
+}
+
+select, option {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-border-radius: 0px;
 }
 
 /** normal css rule **/
@@ -28,6 +34,10 @@ html {
   font-family: Euphemia UCAS, Century Gothic, Verdana, sans-serif;
   text-align: center;
   font-size: 0.625em; }
+
+header{
+  margin-bottom: 2em;
+}
 
 /** Scroll bars **/
 ::-webkit-scrollbar {
@@ -56,7 +66,7 @@ html {
 }
 
 #container {
-  min-height: 50em;
+  min-height: 20em;
   margin: 0 auto;
   width: 60em;
   max-width: 100%;
@@ -77,7 +87,7 @@ a.selected {
 
 /** Header: Menu **/
 #menu {
-  padding: 4em 0;
+  padding: 2em 0; /*4em*/
   color: #606060;
   min-width: 60em; }
 
@@ -255,27 +265,130 @@ input:focus, textarea:focus {
 	/*background: -moz-linear-gradient(top, #668099 0%, #728eaa 20%); /* firefox */
 	/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#668099), color-stop(20%,#728eaa)); /* webkit */
 }
-input[type=submit] {
-  padding: .8em;
+input[type=submit], input[type=button] {
+  padding: .8em 2em;
   /*background-color: #A8D2DA;*/
   border: 1px solid #fff; /*87CDDA*/
   /*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#87CDDA), to(#A8D2DA));*/
   /*border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;*/
   /*background: -moz-linear-gradient(top, #718DA9 0%, #415D79 100%); /* firefox */
   /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#A8D2DA), color-stop(100%,#3F8692)); /* webkit */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f0f0), color-stop(100%,#b0b0b0));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f0f0), color-stop(100%,#e0e0e0));
   cursor: pointer;
 }
-input[type=submit]:active {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b0b0b0), color-stop(100%,#f0f0f0));
+
+.file_upload  input[type=file]{
+  width: 32em;
 }
-input[type=submit]:hover {
-  border: 1px solid #b0b0b0;
+
+.file_upload  input[type=button]{
+  width: 10em;
+  border: .1em solid #f0f0f0;
+  margin-left: .5em;
+}
+.file_upload .fake_input {
+  width: 20em;
+  padding: 0 20px;
+  margin: 0;
+}
+
+input[type=submit]:active, input[type=button]:active {
+  /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b0b0b0), color-stop(100%,#f0f0f0));*/
+  background: #e0e0e0;
+}
+input[type=submit]:hover, input[type=button]:hover {
+  border: .1em solid #b0b0b0;
   /*border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;*/
   /*background: -moz-linear-gradient(top, #718DA9 0%, #415D79 100%); /* firefox */
   /*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#A8D2DA), to(#87CDDA));*/
   /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3F8692), color-stop(100%,#A8D2DA)); /* webkit */
 }
+#work_graphics{
+}
+#work_graphics h2{
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+input[type=file] {
+  background: #fff;
+}
+.file_upload .field{
+  position: relative;
+}
+div.fakefile {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+input.file {
+  position: relative;
+  text-align: right;
+  -moz-opacity:0 ;
+  filter:alpha(opacity: 0);
+  opacity: 0;
+  z-index: 2;
+}
+.field select{
+  width: 260px; height: 35px; padding: 5px 20px 0px 20px; margin: 0 0 20px 0;
+  background: #f0f0f0 url('/images/select_arrow_3.png') no-repeat left top;
+}
+.field option {
+  width: 260px; height: 35px; padding: 5px 20px 0px 20px; margin: 0 0 20px 0;
+  background: #f0f0f0;
+}
+.field_label{
+  font-size: .7em;
+  color: #b0b0b0;
+}
+.tzSelect{
+  height:35px;
+  display:inline-block;
+  min-width:200px;
+  position:relative;
+  width: 220px;
+  line-height: 2.25em;
+}
+.tzSelect .selectBox{
+  position:absolute;
+  cursor:pointer;
+  background: #f0f0f0 url('/images/select_arrow_3.png') no-repeat left top;
+  padding-left:20px;
+  padding-right:20px;
+  width: 220px;
+  height: 35px;
+}
+.tzSelect .selectBox:hover,
+.tzSelect .selectBox.expanded{
+  /*color:#2c5667;*/
+}
+.tzSelect .dropDown {
+  top:35px;
+  position:absolute;
+  width:100%;
+  padding: 0;
+  list-style:none;
+  list-style-type: none;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+}
+.tzSelect li{
+  height:35px;
+  width: 220px;
+  cursor:pointer;
+  position:relative;
+  background: #f0f0f0;
+  border-top: 1px solid #d0d0d0; 
+  padding-left:20px;
+  padding-right:20px;
+}
+.tzSelect li:hover {
+  color: #3F8692;
+}
+.tzSelect li span{
+}
+
 
 /*
 .flickr_pagination {
