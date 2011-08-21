@@ -29,6 +29,8 @@ class WorkPiecesController < ApplicationController
   def show
     @work_piece = WorkPiece.find(params[:id])
 
+    @sections = Section.all
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @work_piece }
@@ -40,6 +42,8 @@ class WorkPiecesController < ApplicationController
   def new
     @work_piece = WorkPiece.new
 
+    @sections = Section.all
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @work_piece }
@@ -49,6 +53,9 @@ class WorkPiecesController < ApplicationController
   # GET /work_pieces/1/edit
   def edit
     @work_piece = WorkPiece.find(params[:id])
+  
+    @sections = Section.all
+
   end
 
   # POST /work_pieces
