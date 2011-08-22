@@ -52,3 +52,7 @@ gem 'will_paginate', '~> 3.0'
 
 # rspec => should add later
 gem 'json', '~> 1.5.3'
+
+# jquery for rails
+gem 'jquery-rails', '>= 1.0.12'
+

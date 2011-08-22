@@ -3,6 +3,8 @@ $(document).ready(function(){
 	// The select element to be replaced:
 	var select = $('select.makeMeFancy');
 
+  if(!select) return;
+  
 	var selectBoxContainer = $('<div>',{
 		width		: select.outerWidth(),
 		className	: 'tzSelect',
