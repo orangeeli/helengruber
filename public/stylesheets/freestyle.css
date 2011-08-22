@@ -401,7 +401,25 @@ input.file {
 }
 .tzSelect li span{
 }
+.login_title{
+  margin: 1em 0;
+}
+.delete_button{
+  margin: 1em 0;
+}
+.actions_new{
+  width: 20em;
+}
+.contact_details{
+  font-size: 2.25em;
+  text-align: left;
+  vertical-align: middle;
+  margin-top: 3.25em
+}
 
+.contact_details div{
+  margin-bottom: 1em;
+}
 
 /*
 .flickr_pagination {

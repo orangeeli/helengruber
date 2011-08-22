@@ -28,9 +28,12 @@
 
 <% if current_user %>
   <div class="actions">
-    <%= link_to 'Show', work_piece %>
-    <%= link_to 'Edit', edit_work_piece_path(work_piece) %>
+    <%= link_to 'Show', work_piece %> &nbsp;|&nbsp; 
+    <%= link_to 'Edit', edit_work_piece_path(work_piece) %> &nbsp;|&nbsp;
     <%= link_to 'Destroy', work_piece, :confirm => 'Are you sure?', :method => :delete %>
+    <!--div class="delete_button">
+      <!--%= button_to "Delete", work_piece, :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?" %-->
+    <!--/div-->
   </div>
 <% end %>
 

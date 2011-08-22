@@ -1,47 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="application-name" content="Helen Gruber Infographics">
     <meta name="description" content="Helen Gruber Infographics">
+    <%= csrf_meta_tag %>
     <%= stylesheet_link_tag "freestyle" %>
-    <%= javascript_include_tag "jquery-1.5.1.min" %>
+    <%= stylesheet_link_tag "nyroModal" %>
+    <!--%= javascript_include_tag "jquery-1.5.1.min" %-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
     <%= javascript_include_tag "util" %>
     <%= javascript_include_tag "ajax" %>
     <%= javascript_include_tag "configuration" %>
     <%= javascript_include_tag "iWidget" %>
     <%= javascript_include_tag "pageWorker" %>
     <%= javascript_include_tag "script" %>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag "jquery.nyroModal.custom.min" %>
 </head>
 <body>
 
-<div id="container">
-        <header>
-                <div id="user_nav">
-  		  <% if current_user %>
-    		    Logged in as <%= current_user.email %>.
-    		    <%= link_to "Log out", log_out_path %>
-  		  <% else %>
-    		    <!--%= link_to "log in", log_in_path %-->
-  		  <% end %>
-		</div>
-                <div id="menu">
-                  <%= yield :menu %>
-            	</div>
-                <div id="messages">
-                  <% flash.each do |name, msg| %>
-  		    <%= content_tag :div, msg, {:id => "flash_#{name}", :class => "#{name}"} %>
-		  <% end %>
-                </div>
-        </header>
+  <div id="container">
+    <header>
+      <div id="user_nav">
+  	  <% if current_user %>
+    	    Logged in as <%= current_user.email %>.
+    	  <%= link_to "Log out", log_out_path %>
+  	<% else %>
+    	  <!--%= link_to "log in", log_in_path %-->
+        <% end %>
+      </div>
+      <div id="menu">
+        <%= yield :menu %>
+      </div>
+      <div id="messages">
+        <% flash.each do |name, msg| %>
+  	  <%= content_tag :div, msg, {:id => "flash_#{name}", :class => "#{name}"} %>
+        <% end %>
+      </div>
+    </header>
 
-        <section>
-            <div id="body">
-	      <%= yield %>
-            </div>
-        </section>
-        <footer>
-          Copyright &copy; Helen Gruber / Eliseu Martinho
-        </footer>
+    <section>
+      <div id="body">
+        <%= yield %>
+      </div>
+    </section>
+    <footer>
+      Copyright &copy; Helen Gruber / Eliseu Martinho
+    </footer>
+  </div>
+
+  <div id="contact_details" style="display: none; width: 600px;">
+    <div class="contact_details">
+      <div class="contact_name">
+        Helen Gruber
+      </div>
+      <div class="contact_address">
+        Felix-Oberborbeckstr.5
+      </div>
+      <div class="contact_address_other">
+        49377 Vechta
+      </div>
+      <div class="contact_email">
+        <a href="mailto:mail@helengruber.de">mail@helengruber.de</a>
+      </div>
+      <div class="contact_phone_number">
+        +49 176 20 77 99 26
+      <div>
     </div>
+  </div>
+  <script type="text/javascript">
+    $(function() {
+      $('.nyroModal').nyroModal();
+    });
+  </script>
+
 </body>
 </html>

@@ -11,9 +11,10 @@ $(document).ready(function() {
 
     // should be done only once in the application
     //Configuration.setMenuActions();
+    initFileUploads();
     fileUploadBuilder = new FileUploadFormBuilder;
     fileUploadBuilder.buildForm('file_upload');
-    initFileUploads();
+    // initFileUploads();
 });
 
 // page worker - will config the elements with the necessary logic and ui
