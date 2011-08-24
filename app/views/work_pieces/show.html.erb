@@ -25,8 +25,11 @@
 <div id="work_graphics">
   <h2>Work Graphics</h2>
   <% @work_piece.work_graphics.each do |work_graphic| %>
-    <div>
-      <img src='<%=work_graphic.graphic_file %>' />
+    <div data-id='<%= work_graphic.id %>'>
+      <img src='<%=work_graphic.graphic_file %>' /> 
+      <div class="actions">
+        <%= link_to 'Destroy', work_graphic, :class => 'image_delete', :confirm => 'Are you sure?', :method => :delete, :remote => true %>
+      </div>
     </div>
     <br />
     <br />
@@ -37,10 +40,6 @@
     <%= custom_form_for([@work_piece, @work_piece.work_graphics.build]) do |f| %>
       <div class="field file_inputs">
         <%= f.file_field :graphic, :class=>'file' %>
-        <!--div class="fakefile">
-          <input class="fake_input" />
-          <input type="button" value="Choose File" />
-        </div--> 
       </div>
       <div class="form_actions">
         <%= f.submit %>

@@ -14,7 +14,18 @@ $(document).ready(function() {
     initFileUploads();
     fileUploadBuilder = new FileUploadFormBuilder;
     fileUploadBuilder.buildForm('file_upload');
-    // initFileUploads();
+  
+
+    if($('.image_delete')){
+      $('.image_delete').bind('ajax:success', function(evt, data, status, xhr){
+        //window.location.reload();
+        $('div[data-id="'+data['response']['work_graphic_id']+'"]').remove();
+        var message = [
+          { MessageText: data['response']['message'], MessageType: "success" }
+        ];
+        $( "#messagesTemplate" ).tmpl( message ).appendTo( "#messages" );
+      });
+    }
 });
 
 // page worker - will config the elements with the necessary logic and ui

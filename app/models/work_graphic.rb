@@ -12,4 +12,10 @@ class WorkGraphic < ActiveRecord::Base
     super(options.merge(:methods => methods))
   end
 
+  before_destroy :clear_graphic
+
+  def clear_graphic
+    self.graphic.clear
+  end
+
 end

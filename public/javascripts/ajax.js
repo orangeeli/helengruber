@@ -14,6 +14,19 @@ Ajax = {
                     alert('Whoooopsieee you broke it!');
                 }
             });
-        }
+        },
+
+     deleteWorkGraphic : function(url){
+                           $.ajax({
+                                   url: url,
+                                   cache: true,
+                                   dataType: Ajax.htmlDataType,
+                                   success: function(data){
+                                            },
+                                   error: function(){
+                                          }
+                           });
+
+                         }
 };
 

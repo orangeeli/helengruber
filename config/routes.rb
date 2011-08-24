@@ -2,6 +2,7 @@ HelenGruber::Application.routes.draw do
   get "sessions/new"
   resources :users
   resources :sections
+  resources :work_graphics
   resources :work_pieces do
     resources :work_graphics
   end
