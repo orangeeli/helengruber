@@ -23,7 +23,8 @@ $(document).ready(function() {
         var message = [
           { MessageText: data['response']['message'], MessageType: "success" }
         ];
-        $( "#messagesTemplate" ).tmpl( message ).appendTo( "#messages" );
+        $("#messages").empty();
+        $("#messagesTemplate").tmpl(message).appendTo("#messages");
       });
     }
 });
@@ -61,9 +62,14 @@ function onformSubmit(file_upload_form, input_file){
 function onframeloaded(iframe){
   // either refresh page or show or inject image (that would require json response) => do it. Return a json object
   if($(iframe).contents()){
-    $('.upload_feedback').text("Image uploaded");
-    window.location.reload();
+    $('.upload_feedback').text("Image uploaded. Wait for page reload.");
+    t=setTimeout("reloadPage()",1000);
   }
+}
+
+function reloadPage(){
+  window.location.reload();
+  clearTimeout(t);
 }
 
 var W3CDOM = (document.createElement && document.getElementsByTagName);

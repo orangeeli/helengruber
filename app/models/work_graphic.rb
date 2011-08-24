@@ -1,5 +1,15 @@
 class WorkGraphic < ActiveRecord::Base
-  has_attached_file :graphic, :default_url => "/images/:style/missing.png", :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :graphic, 
+    :default_url => "/images/:style/missing.png", 
+    :path => "/graphics/:id/:style/:filename",
+    :styles => { :medium => "300x300>", :thumb => "100x100>" },
+    :storage => :s3,
+    :bucket => 'helengruber.media',
+    :s3_credentials => {
+      :access_key_id => ENV['S3_KEY'],
+      :secret_access_key => ENV['S3_SECRET']
+    }
+  
   belongs_to :work_piece
 
   def graphic_file
