@@ -13,3 +13,5 @@ public/system/graphics/**/*
 db/*.sqlite3
 log/*.log
 tmp/
+log/
+config/database.yml

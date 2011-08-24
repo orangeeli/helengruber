@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  details: MyText
+first_section:
+  name: first section
+  details: first section
 
-two:
-  name: MyString
-  details: MyText
+second_section:
+  name: second section
+  details: second section

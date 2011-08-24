@@ -1,28 +1,48 @@
+<% content_for :menu do %>
+  <%= render "shared/menu"%>
+<% end %>
+
+
 <% @work_pieces.each do |work_piece| %>
 <div class="content">
 
   <div class="workpiece-holder">
 
-    <div class="outer-border">
-      <div class="inner-border">
-        <img src="/images/Mücken_ZEIT.png" alt="Work piece test" width="500px" />
-      </div>
-    </div>
+    <% work_piece.work_graphics.each do |work_graphic| %>
+      <div class="outer-border">
+        <div class="inner-border">
+          <img src='<%=work_graphic.graphic_file %>' alt="Work piece test" />
+        </div>
+      </div> 
+    <% end %>
+
   </div>
   <div class="workpiece-description">
-    Work Piece info <%= work_piece.content %>
+    <%= work_piece.content %>
   </div>
   <div class="workpiece-metainfo">
-    Work piece meta info <%= work_piece.title %> 
+    <%= work_piece.title %> 
     <%= work_piece.name %>
   </div>
 </div>
 
-<%= link_to 'Show', work_piece %>
-<%= link_to 'Edit', edit_work_piece_path(work_piece) %>
-<%= link_to 'Destroy', work_piece, :confirm => 'Are you sure?', :method => :delete %>
+<% if current_user %>
+  <div class="actions">
+    <%= link_to 'Show', work_piece %> &nbsp;|&nbsp; 
+    <%= link_to 'Edit', edit_work_piece_path(work_piece) %> &nbsp;|&nbsp;
+    <%= link_to 'Destroy', work_piece, :confirm => 'Are you sure?', :method => :delete %>
+    <!--div class="delete_button">
+      <!--%= button_to "Delete", work_piece, :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?" %-->
+    <!--/div-->
+  </div>
+<% end %>
 
 <% end %>
-<br />
-
-<%= link_to 'New Work piece', new_work_piece_path %>
+<% if current_user %>
+  <div class="actions_new">
+    <%= link_to 'New Work piece', new_work_piece_path %>
+  </div>
+<% end %>
+<div class="pagination">
+  <%= will_paginate @work_pieces, :params => {:section_id => @section_id} %>
+</div>

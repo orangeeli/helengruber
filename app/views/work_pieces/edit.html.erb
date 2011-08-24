@@ -1,6 +1,14 @@
-<h1>Editing work_piece</h1>
+<% content_for :menu do %>
+  <%= render "shared/menu" %>
+<% end %>
+
+<div class="action_header">
+  <h1>Editing Work Piece</h1>
+</div>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @work_piece %> |
-<%= link_to 'Back', work_pieces_path %>
+<div class="actions">
+  <%= link_to 'Show', @work_piece %> |
+  <%= link_to 'Back', work_pieces_path %>
+</div>

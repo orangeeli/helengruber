@@ -1,13 +1,16 @@
 HelenGruber::Application.routes.draw do
+  get "sessions/new"
   resources :users
-
   resources :sections
-
+  resources :work_graphics
   resources :work_pieces do
     resources :work_graphics
   end
-
   get "work_pieces/index"
+
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "log_in" => "sessions#new", :as => "log_in"
+  resources :sessions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

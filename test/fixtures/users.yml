@@ -1,13 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  login: MyString
-  password: MyString
-  email: MyString
+# salt and hash of nil password
+admin:
+  name: admin
+  login: admin
+  password_salt: $2a$10$3wvs1.DRKiTKZXJkEfOXD. 
+  email: admin@example.com
+  password_hash: $2a$10$3wvs1.DRKiTKZXJkEfOXD.jyMW5K4hDDAWuVNUjJ41APOvYwJ87P2
 
-two:
-  name: MyString
-  login: MyString
-  password: MyString
-  email: MyString

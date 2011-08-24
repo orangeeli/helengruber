@@ -1,11 +1,25 @@
 class WorkPiecesController < ApplicationController
+
+  before_filter :authenticate, :except => [:index, :show]
+
   # GET /work_pieces
   # GET /work_pieces.xml
   def index
-    @work_pieces = WorkPiece.all
+
+    # @work_pieces = WorkPiece.all
+
+    if !params[:section_id].nil? && !(params[:section_id].eql? "0")
+      @work_pieces = WorkPiece.where(:section_id => params[:section_id]).paginate(:page => params[:page]).order('id DESC')
+      @current_section_id = params[:section_id]
+    else
+      @work_pieces = WorkPiece.paginate(:page => params[:page]).order('id DESC')
+      @current_section_id = 0
+    end
+
+    @sections = Section.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html #index.html.erb
       format.xml  { render :xml => @work_pieces }
     end
   end
@@ -14,6 +28,8 @@ class WorkPiecesController < ApplicationController
   # GET /work_pieces/1.xml
   def show
     @work_piece = WorkPiece.find(params[:id])
+
+    @sections = Section.all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,6 +42,8 @@ class WorkPiecesController < ApplicationController
   def new
     @work_piece = WorkPiece.new
 
+    @sections = Section.all
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @work_piece }
@@ -35,6 +53,9 @@ class WorkPiecesController < ApplicationController
   # GET /work_pieces/1/edit
   def edit
     @work_piece = WorkPiece.find(params[:id])
+  
+    @sections = Section.all
+
   end
 
   # POST /work_pieces
