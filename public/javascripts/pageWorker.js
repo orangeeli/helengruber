@@ -68,7 +68,7 @@ function onframeloaded(iframe){
 }
 
 function reloadPage(){
-  window.location.reload();
+  //window.location.reload();
   clearTimeout(t);
 }
 
