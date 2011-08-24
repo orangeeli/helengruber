@@ -56,3 +56,6 @@ gem 'json', '~> 1.5.3'
 # jquery for rails
 gem 'jquery-rails', '>= 1.0.12'
 
+# gem amazon s3
+gem 'aws-s3'
+
