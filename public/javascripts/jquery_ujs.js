@@ -252,6 +252,13 @@
         });
       }
       return continuePropagation;
+    },
+
+    callLoaderFeedback : function(element){
+      if(element.data('loader-feedback')){
+        // can't be disabled by the user. Only through element callback
+        return $('.loaderFeedbackAnchor').nm().nmCall();
+      }
     }
   };
 
@@ -262,6 +269,8 @@
     if (!rails.allowAction(link)) return rails.stopEverything(e);
 
     if (link.data('remote') !== undefined) {
+      e.preventDefault();
+      rails.callLoaderFeedback(link);
       rails.handleRemote(link);
       return false;
     } else if (link.data('method')) {
