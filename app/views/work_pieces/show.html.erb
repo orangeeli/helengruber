@@ -28,7 +28,7 @@
     <div data-id='<%= work_graphic.id %>'>
       <img src='<%=work_graphic.graphic_file %>' /> 
       <div class="actions">
-        <%= link_to 'Destroy', work_graphic, :class => 'image_delete', :confirm => 'Are you sure?', :method => :delete, :remote => true %>
+        <%= link_to 'Destroy', work_graphic, :class => 'image_delete', "data-loader-feedback" => true, :confirm => 'Are you sure?', :method => :delete, :remote => true %>
       </div>
     </div>
     <br />

@@ -7,14 +7,11 @@
     <%= csrf_meta_tag %>
     <%= stylesheet_link_tag "freestyle" %>
     <%= stylesheet_link_tag "nyroModal" %>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
-    <%= javascript_include_tag "util" %>
-    <%= javascript_include_tag "ajax" %>
-    <%= javascript_include_tag "configuration" %>
-    <%= javascript_include_tag "iWidget" %>
-    <%= javascript_include_tag "pageWorker" %>
-    <%= javascript_include_tag "script" %>
+    <!--script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script-->
     <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag "util" %>
+    <%= javascript_include_tag "custom_drop_down" %>
+    <%= javascript_include_tag "iWidget" %>
     <%= javascript_include_tag "jquery.nyroModal.custom.min" %>
     <%= javascript_include_tag "jquery.tmpl.min" %>
 </head>
@@ -38,9 +35,7 @@
   	  <%= content_tag :div, msg, {:id => "flash_#{name}", :class => "#{name}"} %>
         <% end %>
       </div>
-      <script id="messagesTemplate" type="text/x-jquery-tmpl">
-        <div id="flash_${MessageType}" class="${MessageType}">${MessageText}</div>
-      </script>
+      
     </header>
 
     <section>
@@ -49,10 +44,14 @@
       </div>
     </section>
     <footer>
-      Copyright &copy; Helen Gruber / Eliseu Martinho
+      Copyright &copy; <%= %> Helen Gruber / Eliseu Martinho
     </footer>
   </div>
 
+  
+
+  <!-- Templates -->
+  <!-- Hardcoded => will change later -->
   <div id="contact_details" style="display: none; width: 600px;">
     <div class="contact_details">
       <div class="contact_name">
@@ -69,13 +68,21 @@
       </div>
       <div class="contact_phone_number">
         +49 176 20 77 99 26
-      <div>
+      </div>
     </div>
   </div>
   <script type="text/javascript">
     $(function() {
       $('.nyroModal').nyroModal();
     });
+  </script>
+  <a class="loaderFeedbackAnchor" href="#loaderFeedback" style="display:none;">loaderFeedback anchor</a>
+  <div id="loaderFeedback" style="display: none; width: 600px;">
+    Working ...
+  </div>
+
+  <script id="messagesTemplate" type="text/x-jquery-tmpl">
+    <div id="flash_${MessageType}" class="${MessageType}">${MessageText}</div>
   </script>
 
 </body>
