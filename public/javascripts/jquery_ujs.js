@@ -277,7 +277,7 @@
     if (!rails.allowAction(link)) return rails.stopEverything(e);
 
     if (link.data('remote') !== undefined) {
-      e.preventDefault();
+      //e.preventDefault();
       rails.callLoaderFeedback(link);
       rails.handleRemote(link);
       return false;
