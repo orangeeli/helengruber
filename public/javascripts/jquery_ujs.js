@@ -176,9 +176,11 @@
     disableFormElements: function(form) {
       form.find(rails.disableSelector).each(function() {
         var element = $(this), method = element.is('button') ? 'html' : 'val';
-        element.data('ujs:enable-with', element[method]());
-        element[method](element.data('disable-with'));
-        element.attr('disabled', 'disabled');
+        if(element.val()){
+          element.data('ujs:enable-with', element[method]());
+          element[method](element.data('disable-with'));
+          element.attr('disabled', 'disabled');
+        }
       });
     },
 
@@ -257,8 +259,14 @@
     callLoaderFeedback : function(element){
       if(element.data('loader-feedback')){
         // can't be disabled by the user. Only through element callback
-        return $('.loaderFeedbackAnchor').nm().nmCall();
-      }
+        //return $('.loaderFeedbackAnchor').nm().nmCall();
+        if(element.is("input") && !$('input.file').val()){
+          return;
+        }
+        return $.nmData('<div class="loader_info">Working...</div>', {closeButton: false, modal: true});
+      }/*else if(element.data('loader-feedback') && element.data('disable-with')){
+        return $.nmData('Submitting...', {closeButton: false, modal: true});
+      }*/
     }
   };
 
@@ -327,6 +335,7 @@
       data = name ? {name:name, value:button.val()} : null;
 
     button.closest('form').data('ujs:submit-button', data);
+    rails.callLoaderFeedback(button);
   });
 
   $(rails.formSubmitSelector).live('ajax:beforeSend.rails', function(event) {

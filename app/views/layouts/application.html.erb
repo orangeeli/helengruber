@@ -8,11 +8,14 @@
     <%= stylesheet_link_tag "freestyle" %>
     <%= stylesheet_link_tag "nyroModal" %>
     <!--script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script-->
-    <%= javascript_include_tag :defaults %>
+    <!--%= javascript_include_tag :defaults %-->
+    <%= javascript_include_tag "jquery" %>
+    <%= javascript_include_tag "jquery.nyroModal.custom.min" %>
+    <%= javascript_include_tag "jquery_ujs" %>
+    <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "util" %>
     <%= javascript_include_tag "custom_drop_down" %>
     <%= javascript_include_tag "iWidget" %>
-    <%= javascript_include_tag "jquery.nyroModal.custom.min" %>
     <%= javascript_include_tag "jquery.tmpl.min" %>
 </head>
 <body>
@@ -73,7 +76,7 @@
   </div>
   <script type="text/javascript">
     $(function() {
-      $('.nyroModal').nyroModal();
+      $('.nyroModal').nyroModal({closeButton: false});
     });
   </script>
   <a class="loaderFeedbackAnchor" href="#loaderFeedback" style="display:none;">loaderFeedback anchor</a>
