@@ -28,21 +28,24 @@
     <div data-id='<%= work_graphic.id %>'>
       <img src='<%=work_graphic.graphic_file %>' /> 
       <div class="actions">
-        <%= link_to 'Destroy', work_graphic, :class => 'image_delete', "data-loader-feedback" => true, :confirm => 'Are you sure?', :method => :delete, :remote => true %>
+        <%= link_to 'Destroy', work_graphic, :class => 'image_delete', "data-loader-feedback" => true, 
+                     :confirm => 'Are you sure?', :method => :delete, :remote => true %>
       </div>
+    <br />
+    <br />
     </div>
-    <br />
-    <br />
   <% end %>
+  <div id="new_work_graphics">
+  </div>
 
   <!-- form file upload TODO: change the name to identify the file upload -->
   <% if current_user %>
     <%= custom_form_for([@work_piece, @work_piece.work_graphics.build]) do |f| %>
       <div class="field file_inputs">
-        <%= f.file_field :graphic, :class=>'file' %>
+        <%= f.file_field :graphic, :class=>'file', :required => true %>
       </div>
       <div class="form_actions">
-        <%= f.submit %>
+        <%= f.submit({:disable_with => "Submitting...", "data-loader-feedback" => true}) %>
       </div>
     <% end %>
 
@@ -52,3 +55,16 @@
     </div>
   <% end %>
 </div>
+
+<script id="workGraphicTemplate" type="text/x-jquery-tmpl">
+  <div id="${Id}">
+    <img src="${Url}" />
+    <div class="actions">
+      <a href="<%= work_graphics_path%>/${Id}" class="image_delete" 
+         data-loader-feedback="true" data-confirm="Are you sure?" 
+         data-method="delete" data-remote="true">Destroy</a>
+    </div>
+    <br />
+    <br />
+  </div>
+</script>

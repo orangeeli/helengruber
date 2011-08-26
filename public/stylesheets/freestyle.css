@@ -230,6 +230,12 @@ a.selected {
   color: #0E6020;
   padding: .5em 2em;
 }
+#messages .warning{
+  border: .1em solid #F9DB98;
+  background-color: #F9E7BE;
+  color: #EDC263;
+  padding: .5em 2em;
+}
 #messages .error{
   border: .1em solid #F9A198;
   background-color: #F9C4BE;/*#94D9A3;*/
@@ -289,7 +295,6 @@ input[type=submit], input[type=button] {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f0f0), color-stop(100%,#e0e0e0));
   cursor: pointer;
 }
-
 .file_upload  input[type=file]{
   width: 32em;
 }
@@ -315,6 +320,11 @@ input[type=submit]:hover, input[type=button]:hover {
   /*background: -moz-linear-gradient(top, #718DA9 0%, #415D79 100%); /* firefox */
   /*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#A8D2DA), to(#87CDDA));*/
   /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3F8692), color-stop(100%,#A8D2DA)); /* webkit */
+}
+input[type=submit]:disabled, input[type=button]:disabled {
+  background: #e0e0e0;
+  border: none;
+  cursor: default;
 }
 #work_graphics{
 }
@@ -419,6 +429,13 @@ input.file {
 
 .contact_details div{
   margin-bottom: 1em;
+}
+
+.loader_info{
+  font-size: 2.25em;
+  padding: 2em 3em;
+  font-family: Euphemia UCAS, Century Gothic, Verdana, sans-serif !important;
+  color: #606060;
 }
 
 /*

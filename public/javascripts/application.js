@@ -21,10 +21,19 @@ $(document).ready(function() {
     fileUploadBuilder = new FileUploadFormBuilder;
     fileUploadBuilder.buildFakeForm();
     fileUploadBuilder.buildForm('file_upload');
-    setImageDeleteBehavior();
+    imageDeleteHook();
+    fileUploadHook();
+    modalConfig();
 });
 
-function setImageDeleteBehavior(){
+function fileUploadHook(){
+  $('form').live('ajax:aborted:file', function(event, elements){
+    // Implement own remote file-transfer handler here for non-blank file inputs
+    return false;
+  });
+}
+
+function imageDeleteHook(){
   if($('.image_delete')){
     $('.image_delete').bind('ajax:success', function(evt, data, status, xhr){
       $('div[data-id="'+data['response']['work_graphic_id']+'"]').remove();
@@ -33,6 +42,22 @@ function setImageDeleteBehavior(){
       ];
       $("#messages").empty();
       $("#messagesTemplate").tmpl(message).appendTo("#messages");
+      $.nmTop().close();
     });
   }
 }
+
+function modalConfig(){
+  // set some options
+  $.nmObj({});
+
+  // set opacity to 50% instead of the 75%
+  $.nmAnims({
+    fade: {
+      showBg: function(nm, clb) {
+        nm.elts.bg.fadeTo(250, 0.5, clb);
+      }
+    }
+  });
+}
+
