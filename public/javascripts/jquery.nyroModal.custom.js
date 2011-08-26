@@ -869,6 +869,7 @@ jQuery(function($, undefined) {
 		nmAnims: _internal.nmAnims,
 		nmFilters: _internal.nmFilters,
 		nmTop: _internal.nmTop
+                //modalRemove: _internal.nmTop.close()
 	});
 
 	// Add jQuery selectors

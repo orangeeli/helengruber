@@ -42,9 +42,23 @@ function imageDeleteHook(){
       ];
       $("#messages").empty();
       $("#messagesTemplate").tmpl(message).appendTo("#messages");
-      $.nmTop().close();
+      t=setTimeout("delayedModalClose()",1000);
     });
   }
+}
+
+function delayedModalClose(){
+  $.nmTop().close();
+  /*var modal =  $('.nyroModalBg');
+  if(modal){
+    var parentElement = modal.parent();
+    if(parentElement && parentElement.is('div')){
+      var grandpa = parentElement.parent();
+      if(grandpa && grandpa.is('div')){
+        grandpa.remove();
+      }
+    }
+  }*/
 }
 
 function modalConfig(){
