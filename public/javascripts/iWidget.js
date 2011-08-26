@@ -156,7 +156,8 @@ function reloadPage(){
   $("#workGraphicTemplate").tmpl(new_work_graphic).appendTo("#new_work_graphics");
 
   enableFormElements();
-
+  imageDeleteHook();
+  cleanInputs();
   $.nmTop().close();
   clearTimeout(t);
 }
