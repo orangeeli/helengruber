@@ -145,7 +145,10 @@ a.selected {
   padding: 30px 0px; }
 
 .workpiece-holder {
-  margin: 0 auto; }
+  margin: 0 auto;
+  overflow: hidden;
+  display: table;
+}
 
 .workpiece-description {
   margin-top: 1em;
@@ -164,11 +167,13 @@ a.selected {
   /*margin-left: 1em;*/ 
   border: .3em solid #f0f0f0;
   padding: .5em;
+  display: table;
 }
 
 .outer-border {
   /*border: 0.1em solid #000;*/ 
   margin-bottom: 2em;
+  display: table;
 }
 
 .file_upload_iframe_form{

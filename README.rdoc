@@ -1,0 +1,22 @@
+= Helen Gruber's website
+
+== Overview
+
+An exhibition gallery to show the infographer's works. It has a backoffice, blog like application, that allows the user to add new works.
+
+== Rationale
+
+Helen Gruber is a German freelancer Infographic Designer. She has done works with ...
+
+== Drive
+A simple application that allows the user to publish the work.
+
+== Use cases
+
+== Technology
+
+Ruby on rails stack
+Jquery
+
+=== Log TODO
+    Fix the messy javascript code. Looks like a kids sandbox.
