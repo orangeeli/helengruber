@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :section_id %><br />
-    <%= collection_select(:work_piece, :section_id, Section.all, :id, :name, {}, {:class =>'makeMeFancy', :data_html_text => :name}) %>
+    <%= collection_select(:work_piece, :section_id, Section.all, :id, :name, {:include_blank => 'Select a section...'}, {:class =>'customize_me'}) %>
   </div>
 
   <div class="field">

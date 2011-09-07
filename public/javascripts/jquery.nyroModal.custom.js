@@ -868,8 +868,8 @@ jQuery(function($, undefined) {
 		nmInternal: _internal.nmInternal,
 		nmAnims: _internal.nmAnims,
 		nmFilters: _internal.nmFilters,
-		nmTop: _internal.nmTop
-                //modalRemove: _internal.nmTop.close()
+		nmTop: _internal.nmTop,
+                modalRemove: function(){_internal.nmTop().close()}
 	});
 
 	// Add jQuery selectors

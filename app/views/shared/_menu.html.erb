@@ -8,7 +8,7 @@
       <% @sections.each do |section| %>
         <li class="menu_link" >
           <!--a rel="infographics" href="#">Infographics</a-->
-          <%= link_to_section section.name.capitalize!, @current_section_id, section.id %>
+          <%= link_to_section section.name.capitalize!, @current_section_id, section%>
         </li>
       <% end %>
     </ul>

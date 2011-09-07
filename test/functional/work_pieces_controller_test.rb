@@ -13,6 +13,21 @@ class WorkPiecesControllerTest < ActionController::TestCase
     @work_piece.save
   end
 
+  test "should route to work pieces first section first page" do
+    assert_routing({:path=>"work_pieces/section/1/page/1", :method => :post }, 
+    {:controller=>"work_pieces", :action=>"index", :section_id=>"1", :page=>"1"})#, {}, {}, 'Route not generated properly'
+  end
+
+  test "should route to search" do
+    assert_routing({:path=>"work_pieces/search", :method => :get}, 
+    {:controller=>"work_pieces", :action=>"search"})#, {}, {}, 'Route not generated properly'
+  end
+
+  test "should route to archive" do
+    assert_routing({:path=>"work_pieces/archive/2011/11/11", :method => :get}, 
+    {:controller=>"work_pieces", :action=>"archive", :year=>"2011", :month=>"11", :day=>"11"})#, {}, {}, 'Route not generated properly'
+  end
+
   test "should get index" do
     get :index
     assert_response :success
@@ -24,7 +39,7 @@ class WorkPiecesControllerTest < ActionController::TestCase
     assert_response :success
     assert_not_nil assigns(:work_pieces)
     assert_equal 1, assigns["work_pieces"].count
-    assert_equal Section.last.id,  assigns["section_id"]
+    assert_equal Section.last.id,  assigns["current_section_id"]
   end
 
   test "should get new" do

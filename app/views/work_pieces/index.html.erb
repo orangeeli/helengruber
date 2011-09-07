@@ -44,5 +44,5 @@
   </div>
 <% end %>
 <div class="pagination">
-  <%= will_paginate @work_pieces, :params => {:section_id => @section_id} %>
+  <%= will_paginate @work_pieces, :params => {:section_id => @current_section_id} %>
 </div>
