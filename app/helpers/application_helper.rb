@@ -1,10 +1,12 @@
 module ApplicationHelper
 
-  def link_to_section(section_name, current_section_id, section_id)
-     if current_section_id.to_s.eql? section_id.to_s
-       link_to section_name, work_pieces_path(:section_id => section_id), {:class=>'selected'}
+  def link_to_section(section_name, current_section_id, section)
+     if current_section_id.to_s.eql? section.id.to_s
+       # link_to section_name, work_pieces_path(:section_id => section_id), {:class=>'selected'}
+       link_to section_name, work_pieces_path + '/section/' + section.id.to_s, {:class=>'selected'}
      else
-       link_to section_name, work_pieces_path(:section_id => section_id)
+       # link_to section_name, work_pieces_path(:section_id => section_id)
+       link_to section_name, work_pieces_path + '/section/' + section.id.to_s
      end
   end
 

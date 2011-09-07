@@ -8,7 +8,7 @@ class SectionsControllerTest < ActionController::TestCase
     user = users(:admin)
     session[:user_id] = user.id
   end
-
+  
   test "should get index" do
     get :index
     assert_response :success
