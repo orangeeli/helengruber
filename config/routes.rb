@@ -8,8 +8,8 @@ HelenGruber::Application.routes.draw do
 
   #match '/work_pieces/index/page/:page/section/:section_id' => 'work_piece#index'
   match '/work_pieces/section/:section_id/page/:page', :controller => 'work_pieces', :action => 'index'
-  #match '/work_pieces/page/:page/section/:section_id', :controller => 'work_pieces', :action => 'index'
-  #match '/work_pieces/page/:page', :controller => 'work_pieces', :action => 'index'
+  match '/work_pieces/section/:section_id', :controller => 'work_pieces', :action => 'index'
+  match '/work_pieces/page/:page', :controller => 'work_pieces', :action => 'index'
 
   resources :work_pieces do
     get 'search', :on => :collection

@@ -2,7 +2,7 @@ class WorkGraphic < ActiveRecord::Base
   has_attached_file :graphic, 
     :default_url => "/images/:style/missing.png", 
     :path => "/graphics/:id/:style/:filename",
-    :styles => { :medium => "300x300>", :thumb => "100x100>" },
+    :styles => { :medium => "300x100>", :thumb => "100x50>" },
     :storage => :s3,
     :bucket => 'helengruber.media',
     :s3_credentials => {
