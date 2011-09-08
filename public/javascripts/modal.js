@@ -143,7 +143,3 @@ var Modal = Class.extend({
   }
 });
 
-
-$(document).ready(function() {
-  
-});

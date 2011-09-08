@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate 
+  before_filter :authenticate, :except => [:send_user_message]
 
   # GET /users
   # GET /users.xml
@@ -82,4 +82,9 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def send_user_message
+    UserMailer.send_user_message(params[:name], params[:mail], params[:message]).deliver
+  end
+
 end

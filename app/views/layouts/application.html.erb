@@ -53,13 +53,11 @@
     </footer>
   </div>
 
-  
-
   <!-- Templates -->
   <!-- Hardcoded => will change later -->
   <div id="modal_mask"></div>
   <div id="contact_details" class="modal">
-    <div class="contact_details">
+    <!--div class="contact_details">
       <div class="contact_name">
         Helen Gruber
       </div>
@@ -75,7 +73,39 @@
       <div class="contact_phone_number">
         +49 176 20 77 99 26
       </div>
+    </div-->
+
+    <div id="send_message">
+      <div class="form">
+        <%= form_tag '/users/send_user_message', :remote => true do %>
+          <div class="field">
+            <%= label_tag 'name' %><br />
+            <%= text_field_tag 'name', nil,{:placeholder=>"My mom always told me not speak with strangers"} %>
+          </div>
+          <div class="field">
+            <%= label_tag 'email' %><br />
+            <%= email_field_tag 'email', nil, {:placeholder=>"Won't spam. Honestly."} %>
+          </div>
+          <div class="field">
+            <%= label_tag 'message' %><br />
+            <%= text_area_tag 'message', nil, {:placeholder=>'Say something nice!'}%>
+          </div>
+
+          <div class="form_actions">
+            <%= submit_tag 'Send Message', :disable_with => "Sending...", :remote =>true %>
+          </div>
+        <% end %>
+      </div>
     </div>
+
+    <div id="send_message_instructions">
+      <p> Comments? Feedback? Projects? Or just "Hello!"? Send me a message or give me a call +49 176 20 77 99 26.
+      </p>
+      <div id="mosquito">
+        <%= image_tag "Mosquito.png" %>
+      </div>
+    </div>
+
   </div>
   <script type="text/javascript">
     /*$(function() {
