@@ -158,7 +158,7 @@ function reloadPage(){
   enableFormElements();
   imageDeleteHook();
   cleanInputs();
-  $.nmTop().close();
+  modal.close();
   clearTimeout(t);
 }
 

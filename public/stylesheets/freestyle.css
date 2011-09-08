@@ -36,7 +36,7 @@ html {
   font-size: 0.625em; }
 
 header{
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 footer {
@@ -94,9 +94,12 @@ a.selected {
 
 /** Header: Menu **/
 #menu {
-  padding: 2em 0; /*4em*/
+  padding: 2em 0 1em 0; /*4em*/
   color: #606060;
-  min-width: 60em; }
+  min-width: 60em;
+  /*position: fixed;
+  background: #fff;*/
+  }
 
 #home {
   float: left;
@@ -142,7 +145,7 @@ a.selected {
   clear: both;
   /*margin: 0 auto;*/
   width: 550px;
-  padding: 30px 0px; }
+  padding: 15px 0px; }
 
 .workpiece-holder {
   margin: 0 auto;
@@ -151,7 +154,7 @@ a.selected {
 }
 
 .workpiece-description {
-  margin-top: 1em;
+  /*margin-top: 1em;*/
   /*margin-left: 1em;*/
   color: #000;
   font-size: 1.1em;
@@ -224,6 +227,7 @@ a.selected {
 #user_nav{
   text-align: right;
   padding-top: 2em;
+  /*font-size: .7em;*/
 }
 #messages{
   height: 2em;
@@ -397,6 +401,12 @@ input.file {
   padding: 2em 3em;
   font-family: Euphemia UCAS, Century Gothic, Verdana, sans-serif !important;
   color: #606060;
+  display: none;
+  top: 0; 
+  background: #fff;
+  position: fixed; 
+  overflow: auto; 
+  z-index: 11;
 }
 .custom_select{
   height:35px;
@@ -443,4 +453,25 @@ input.file {
   color: #3F8692;
 }
 .custom_select li span{
+}
+#modal_mask {
+  background: #b0b0b0; 
+  position: fixed; 
+  top: 0; 
+  overflow: auto; 
+  z-index: 10;
+}
+#contact_details {
+  display: none; 
+  width: 600px; 
+  top: 0; 
+  background: #fff; 
+  position: fixed; 
+  overflow: auto; 
+  z-index: 11;
+}
+#spacer{
+  /*width: 100%;
+  height: 56px;/*84px;*/
+  display: none;
 }

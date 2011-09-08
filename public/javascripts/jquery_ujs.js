@@ -263,7 +263,8 @@
         if(element.is("input") && !$('input.file').val()){
           return;
         }
-        return $.nmData('<div class="loader_info">Working...</div>', {closeButton: false, modal: true});
+        //return $.nmData('<div class="loader_info">Working...</div>', {closeButton: false, modal: true});
+        modal.open('#loaderFeedback');
       }/*else if(element.data('loader-feedback') && element.data('disable-with')){
         return $.nmData('Submitting...', {closeButton: false, modal: true});
       }*/

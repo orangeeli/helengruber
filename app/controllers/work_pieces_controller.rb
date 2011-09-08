@@ -17,6 +17,8 @@ class WorkPiecesController < ApplicationController
     end
 
     @sections = Section.all
+ 
+    #flash[:notice] = "teste"
 
     respond_to do |format|
       format.html #index.html.erb

@@ -21,6 +21,12 @@ $(document).ready(function() {
     fileUploadBuilder = new FileUploadFormBuilder;
     fileUploadBuilder.buildFakeForm();
     fileUploadBuilder.buildForm('file_upload');
+
+    // create factory! factory! factory!
+    modal = new Modal(false);   
+    modal.bindOpenHandler("#contact_anchor");
+    modal.bindCloseHandler();
+
     imageDeleteHook();
     fileUploadHook();
     modalConfig();
@@ -42,23 +48,9 @@ function imageDeleteHook(){
       ];
       $("#messages").empty();
       $("#messagesTemplate").tmpl(message).appendTo("#messages");
-      t=setTimeout("delayedModalClose()",1000);
+      t=setTimeout((function(){window.modal.close();})(),1000);
     });
   }
-}
-
-function delayedModalClose(){
-  $.nmTop().close();
-  /*var modal =  $('.nyroModalBg');
-  if(modal){
-    var parentElement = modal.parent();
-    if(parentElement && parentElement.is('div')){
-      var grandpa = parentElement.parent();
-      if(grandpa && grandpa.is('div')){
-        grandpa.remove();
-      }
-    }
-  }*/
 }
 
 function modalConfig(){

@@ -17,6 +17,7 @@
     <%= javascript_include_tag "custom_drop_down" %>
     <%= javascript_include_tag "iWidget" %>
     <%= javascript_include_tag "jquery.tmpl.min" %>
+    <%= javascript_include_tag "modal" %>
 </head>
 <body>
 
@@ -33,6 +34,7 @@
       <div id="menu">
         <%= yield :menu %>
       </div>
+      <div id="spacer"></div>
       <div id="messages">
         <% flash.each do |name, msg| %>
   	  <%= content_tag :div, msg, {:id => "flash_#{name}", :class => "#{name}"} %>
@@ -55,7 +57,8 @@
 
   <!-- Templates -->
   <!-- Hardcoded => will change later -->
-  <div id="contact_details" style="display: none; width: 600px;">
+  <div id="modal_mask"></div>
+  <div id="contact_details" class="modal">
     <div class="contact_details">
       <div class="contact_name">
         Helen Gruber
@@ -75,12 +78,12 @@
     </div>
   </div>
   <script type="text/javascript">
-    $(function() {
+    /*$(function() {
       $('.nyroModal').nyroModal({closeButton: false});
-    });
+    });*/
   </script>
   <a class="loaderFeedbackAnchor" href="#loaderFeedback" style="display:none;">loaderFeedback anchor</a>
-  <div id="loaderFeedback" style="display: none; width: 600px;">
+  <div id="loaderFeedback" class="modal loader_info">
     Working ...
   </div>
 
