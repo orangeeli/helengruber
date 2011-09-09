@@ -35,7 +35,7 @@
         <%= yield :menu %>
       </div>
       <div id="spacer"></div>
-      <div id="messages">
+      <div id="application_messages" class="messages">
         <% flash.each do |name, msg| %>
   	  <%= content_tag :div, msg, {:id => "flash_#{name}", :class => "#{name}"} %>
         <% end %>
@@ -49,7 +49,7 @@
       </div>
     </section>
     <footer>
-      Copyright &copy; <%= %> Helen Gruber / Eliseu Martinho
+      Copyright &copy; <%= Time.now.year %> Helen Gruber / Eliseu Martinho
     </footer>
   </div>
 
@@ -67,32 +67,36 @@
       <div class="contact_address_other">
         49377 Vechta
       </div>
-      <div class="contact_email">
-        <a href="mailto:mail@helengruber.de">mail@helengruber.de</a>
-      </div>
       <div class="contact_phone_number">
         +49 176 20 77 99 26
       </div>
     </div-->
 
     <div id="send_message">
-      <div class="form">
-        <%= form_tag '/users/send_user_message', :remote => true do %>
+      <div class="send_message_div_form">
+        <%= form_tag '/users/send_user_message', {:remote => true, :class=>'send_message_form'} do %>
           <div class="field">
             <%= label_tag 'name' %><br />
-            <%= text_field_tag 'name', nil,{:placeholder=>"My mom always told me not speak with strangers"} %>
+            <%= text_field_tag 'name', nil,{:placeholder=>"Tell me who you are", :required=>true} %>
           </div>
           <div class="field">
             <%= label_tag 'email' %><br />
-            <%= email_field_tag 'email', nil, {:placeholder=>"Won't spam. Honestly."} %>
+            <%= email_field_tag 'email', nil, {:placeholder=>"Won't spam. Honestly.", :required=>true} %>
           </div>
           <div class="field">
             <%= label_tag 'message' %><br />
-            <%= text_area_tag 'message', nil, {:placeholder=>'Say something nice!'}%>
+            <%= text_area_tag 'message', nil, {:placeholder=>'Say something nice!', :required=>true}%>
           </div>
 
           <div class="form_actions">
-            <%= submit_tag 'Send Message', :disable_with => "Sending...", :remote =>true %>
+            <ul class="message_button_and_feedback">
+              <li>
+                <%= submit_tag 'Send Message', :class=>'send_message_button', :disable_with => "Sending...", :remote =>true %>
+              </li>
+              <li>
+                <div id="send_message_feedback" class="messages send_message_feedback"></div>
+              </li>
+            </ul>
           </div>
         <% end %>
       </div>
@@ -108,9 +112,45 @@
 
   </div>
   <script type="text/javascript">
-    /*$(function() {
-      $('.nyroModal').nyroModal({closeButton: false});
-    });*/
+    $('.send_message_form').bind('ajax:success', function(evt, data, status, xhr){
+      var message = [
+        { MessageText: 'Successfuly Sent', MessageType: "success" }
+      ];
+      $("#send_message_feedback").empty();
+      $("#messagesTemplate").tmpl(message).appendTo("#send_message_feedback");
+
+      // create util singleton that will have set message method (args:: setIn, message array)
+      var messagesSelector = "div[id='flash_success'], div[id='flash_notice'], div[id='flash_warning'], div[id='flash_error']";
+      var messages = $(messagesSelector);
+      if(messages){
+        messages.each(function(){
+          $(this).delay(2000).fadeOut();
+        });
+      }
+    })
+
+    .bind('ajax:error', function(evt, data, status, xhr){
+      var message = [
+        { MessageText: 'Please try again. Sorry.', MessageType: "error" }
+      ];
+      $("#send_message_feedback").empty();
+      $("#messagesTemplate").tmpl(message).appendTo("#send_message_feedback");
+
+      var messagesSelector = "div[id='flash_success'], div[id='flash_notice'], div[id='flash_warning'], div[id='flash_error']";
+      var messages = $(messagesSelector);
+      if(messages){
+        messages.each(function(){
+          $(this).delay(2000).fadeOut();
+        });
+      }
+    });
+
+    $('.send_message_form').live('ajax:aborted:required', function(event, elements){
+      elements.each(function(){
+        $(this).addClass('blank-required');
+      });
+    });
+    
   </script>
   <a class="loaderFeedbackAnchor" href="#loaderFeedback" style="display:none;">loaderFeedback anchor</a>
   <div id="loaderFeedback" class="modal loader_info">

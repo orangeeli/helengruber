@@ -93,8 +93,8 @@ var Modal = Class.extend({
       var winH = $(window).height();        
       var winW = $(window).width();                       
       //Set the popup window to center        
-      $(id).css('top',  winH/2-$(id).height()/2);        
-      $(id).css('left', winW/2-$(id).width()/2);             
+      $(id).css('top', winH/2-$(id).outerHeight()/2);        
+      $(id).css('left', winW/2-$(id).outerWidth()/2);             
       //transition effect        
       $(id).fadeIn(300);          
     }); 
@@ -131,8 +131,8 @@ var Modal = Class.extend({
     var winH = $(window).height();        
     var winW = $(window).width();                       
     //Set the popup window to center        
-    $(elementSelector).css('top',  winH/2-$(elementSelector).height()/2);        
-    $(elementSelector).css('left', winW/2-$(elementSelector).width()/2);             
+    $(elementSelector).css('top', winH/2-$(elementSelector).outerHeight()/2);        
+    $(elementSelector).css('left', winW/2-$(elementSelector).outerWidth()/2);             
     //transition effect
     $(elementSelector).fadeIn(300);
     // end

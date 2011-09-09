@@ -5,8 +5,8 @@ class UserMailer < ActionMailer::Base
     @user_name = name
     @user_email = email
     @user_message = message
-    mail(:to => 'mail@helengruber.de', :subject => "Message from my awsome website") do |format|
-      format.html { render 'user_message' }
+    mail(:to => 'eliseu.martinho@gmail.com', :subject => "Message for Helen Gruber from a friendly user that has just visited her website") do |format|
+      format.html { render 'user_message.html' }
     end
   end
 

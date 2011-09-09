@@ -84,7 +84,8 @@ class UsersController < ApplicationController
   end
 
   def send_user_message
-    UserMailer.send_user_message(params[:name], params[:mail], params[:message]).deliver
+    UserMailer.send_user_message(params[:name], params[:email], params[:message]).deliver
+    render :json=>{:response=>{:message=>"Alles Gute"}}, :status=>:ok
   end
 
 end
