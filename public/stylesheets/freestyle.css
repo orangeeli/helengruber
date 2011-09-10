@@ -229,23 +229,23 @@ a.selected {
   padding-top: 2em;
   /*font-size: .7em;*/
 }
-#messages{
+#application_messages, .messages{
   height: 2em;
   line-height: 2.25em;
 }
-#messages .success, #messages .notice{
+#application_messages .success, #application_messages .notice, .messages .success, .messages .notice{
   border: .1em solid #7AD98F;
   background-color: #AFE5BB;/*#94D9A3;*/
   color: #0E6020;
   padding: .5em 2em;
 }
-#messages .warning{
+#application_messages .warning, .messages .warning{
   border: .1em solid #F9DB98;
   background-color: #F9E7BE;
   color: #EDC263;
   padding: .5em 2em;
 }
-#messages .error{
+#application_messages .error, .messages .error{
   border: .1em solid #F9A198;
   background-color: #F9C4BE;/*#94D9A3;*/
   color: #801D12;
@@ -463,15 +463,49 @@ input.file {
 }
 #contact_details {
   display: none; 
-  width: 600px; 
+  /*width: 100em;*/
+  width: 900px; 
   top: 0; 
   background: #fff; 
   position: fixed; 
-  overflow: auto; 
   z-index: 11;
+  padding: 4em;
 }
 #spacer{
   /*width: 100%;
   height: 56px;/*84px;*/
   display: none;
 }
+
+#send_message{
+  text-align: left;
+  font-size: 2.25em;
+  float: left;
+}
+
+#send_message_instructions{
+  margin-left: 27em;
+  padding-left: 3em;
+  font-size: 2.25em;
+  text-align: left;
+  border-left: .1em solid #f0f0f0;
+  min-height: 30em;
+  padding-top: 1em;
+}
+
+ul.message_button_and_feedback{
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.message_button_and_feedback li{
+  display: inline-block;
+  list-style-type: none;
+  margin-right: 1em;
+}
+.send_message_feedback{
+  width: 100%;
+  font-size: .7em;
+}
+

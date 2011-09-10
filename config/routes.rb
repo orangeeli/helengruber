@@ -26,6 +26,9 @@ HelenGruber::Application.routes.draw do
   # match ':controller/section/:section_id' => 'work_piece#index'
   match ':controller/:action/:year/:month/:day' => 'work_piece#archive'
 
+  # send user message
+  match '/users/send_user_message' => 'users#send_user_message'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

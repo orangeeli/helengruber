@@ -33,10 +33,10 @@ $(document).ready(function() {
 });
 
 function fileUploadHook(){
-  $('form').live('ajax:aborted:file', function(event, elements){
+  /*$('form').live('ajax:aborted:file', function(event, elements){
     // Implement own remote file-transfer handler here for non-blank file inputs
     return false;
-  });
+  });*/
 }
 
 function imageDeleteHook(){
@@ -46,8 +46,8 @@ function imageDeleteHook(){
       var message = [
         { MessageText: data['response']['message'], MessageType: "success" }
       ];
-      $("#messages").empty();
-      $("#messagesTemplate").tmpl(message).appendTo("#messages");
+      $("#application_messages").empty();
+      $("#messagesTemplate").tmpl(message).appendTo("#application_messages");
       t=setTimeout((function(){window.modal.close();})(),1000);
     });
   }

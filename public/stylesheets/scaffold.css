@@ -31,12 +31,12 @@ div.field, div.actions {
 }
 
 #error_explanation {
-  width: 450px;
+  /*width: 450px;
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
+  background-color: #f0f0f0;*/
 }
 
 #error_explanation h2 {
