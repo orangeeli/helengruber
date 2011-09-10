@@ -463,11 +463,11 @@ input.file {
 }
 #contact_details {
   display: none; 
-  width: 100em; 
+  /*width: 100em;*/
+  width: 900px; 
   top: 0; 
   background: #fff; 
   position: fixed; 
-  overflow: auto; 
   z-index: 11;
   padding: 4em;
 }
