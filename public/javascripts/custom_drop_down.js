@@ -1,95 +1,96 @@
 $(document).ready(function(){
-	
-	// The select element to be replaced:
-	var select = $('select.makeMeFancy');
+  // The select element to be replaced:
+  var select = $('select.customize_me');
 
   if(!select) return;
   
-	var selectBoxContainer = $('<div>',{
-		width		: select.outerWidth(),
-		className	: 'tzSelect',
-		html		: '<div class="selectBox"></div>'
-	});
+  var selectBoxContainer = $('<div>',{
+    width : select.outerWidth(),
+    'class': 'custom_select',
+    html : '<div class="select_box"></div>'
+  });
 
-	var dropDown = $('<ul>',{className:'dropDown'});
-	var selectBox = selectBoxContainer.find('.selectBox');
+  var dropDown = $('<ul>',{'class':'dropDown'});
+  var selectBox = selectBoxContainer.find('.select_box');
 	
-	// Looping though the options of the original select element
+  // Looping though the options of the original select element
 	
-	select.find('option').each(function(i){
-		var option = $(this);
+  select.find('option').each(function(i){
+    var option = $(this);
 		
-		if(i==select.attr('selectedIndex')){
-			selectBox.html(option.text());
-		}
+    /**if(i==select.attr('selectedIndex')){
+      selectBox.html(option.text());
+    }**/
+
+    if(option.attr('selected')){
+      selectBox.html(option.text());     
+    }
 		
-		// As of jQuery 1.4.3 we can access HTML5 
-		// data attributes with the data() method.
+    // As of jQuery 1.4.3 we can access HTML5 
+    // data attributes with the data() method.
 		
-		if(option.data('skip')){
-			return true;
-		}
+    if(option.data('skip')){
+      return true;
+    }
 		
-		// Creating a dropdown item according to the
-		// data-icon and data-html-text HTML5 attributes:
+    // Creating a dropdown item according to the
+    // data-icon and data-html-text HTML5 attributes:
 		
-		var li = $('<li>',{
-			html:	'<span>'+option.text()+'</span>'
-		});
+    var li = $('<li>',{
+      html : '<span>'+option.text()+'</span>'
+    });
 				
-		li.click(function(){
-			
-			selectBox.html(option.text());
-			dropDown.trigger('hide');
-			
-			// When a click occurs, we are also reflecting
-			// the change on the original select element:
-			select.val(option.val());
-			return false;
-		});
+    li.click(function(){
+      selectBox.html(option.text());
+      dropDown.trigger('hide');
+      // When a click occurs, we are also reflecting
+      // the change on the original select element:
+      select.val(option.val());
+      return false;
+     });
 		
-		dropDown.append(li);
-	});
+     dropDown.append(li);
+  });
+  
+  selectBoxContainer.append(dropDown.hide());
+  select.hide().after(selectBoxContainer);
+  
+  // Binding custom show and hide events on the dropDown:
+  dropDown.bind('show',function(){
+    if(dropDown.is(':animated')){
+      return false;
+    }
+		
+    selectBox.addClass('expanded');
+    dropDown.slideDown();
+		
+  }).bind('hide',function(){
+		
+    if(dropDown.is(':animated')){
+      return false;
+    }
+		
+    selectBox.removeClass('expanded');
+    dropDown.slideUp();
+		
+  }).bind('toggle',function(){
+    if(selectBox.hasClass('expanded')){
+      dropDown.trigger('hide');
+    }
+    else{
+      dropDown.trigger('show');
+    } 
+  });
 	
-	selectBoxContainer.append(dropDown.hide());
-	select.hide().after(selectBoxContainer);
-	
-	// Binding custom show and hide events on the dropDown:
-	
-	dropDown.bind('show',function(){
-		
-		if(dropDown.is(':animated')){
-			return false;
-		}
-		
-		selectBox.addClass('expanded');
-		dropDown.slideDown();
-		
-	}).bind('hide',function(){
-		
-		if(dropDown.is(':animated')){
-			return false;
-		}
-		
-		selectBox.removeClass('expanded');
-		dropDown.slideUp();
-		
-	}).bind('toggle',function(){
-		if(selectBox.hasClass('expanded')){
-			dropDown.trigger('hide');
-		}
-		else dropDown.trigger('show');
-	});
-	
-	selectBox.click(function(){
-		dropDown.trigger('toggle');
-		return false;
-	});
+  selectBox.click(function(){
+    dropDown.trigger('toggle');
+    return false;
+  });
 
-	// If we click anywhere on the page, while the
-	// dropdown is shown, it is going to be hidden:
+  // If we click anywhere on the page, while the
+  // dropdown is shown, it is going to be hidden:
 	
-	$(document).click(function(){
-		dropDown.trigger('hide');
-	});
+  $(document).click(function(){
+    dropDown.trigger('hide');
+  });
 });

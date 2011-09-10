@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     if !current_user
-      redirect_to root_url, :notice => "Action not permitted."
+      flash[:warning] = "Action not permitted."
+      redirect_to root_url 
     end
   end
 

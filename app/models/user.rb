@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :name, :login, :email, :password, :password_confirmation
   attr_accessor :password
   
   # callbacks

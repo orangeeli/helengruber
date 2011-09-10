@@ -8,12 +8,12 @@
       <% @sections.each do |section| %>
         <li class="menu_link" >
           <!--a rel="infographics" href="#">Infographics</a-->
-          <%= link_to_section section.name.capitalize!, @current_section_id, section.id %>
+          <%= link_to_section section.name.capitalize!, @current_section_id, section%>
         </li>
       <% end %>
     </ul>
   </div>
-  <div id="contact" class="menu_link"><a rel="contact" class="nyroModal" href="#contact_details">Contact</a></div><!-- 45px -->
+  <div id="contact" class="menu_link"><a id="contact_anchor" rel="contact" class="nyroModal" href="#contact_details">Contact</a></div><!-- 45px -->
 </div>
 <div id="sub_menu"></div>
 <div id="sections"></div>

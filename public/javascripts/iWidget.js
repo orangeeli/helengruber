@@ -120,8 +120,8 @@ function renderMessage(text, type){
   var message = [
     { MessageText: text, MessageType: type }
   ];
-  $("#messages").empty();
-  $("#messagesTemplate").tmpl(message).appendTo("#messages");
+  $("#application_messages").empty();
+  $("#messagesTemplate").tmpl(message).appendTo("#application_messages");
 }
 function enableFormElements(){
   $('form').find('input[data-disable-with]:disabled').each(function() {
@@ -146,8 +146,8 @@ function reloadPage(){
   var message = [
     { MessageText: 'Image uploaded', MessageType: "success" }
   ];
-  $("#messages").empty();
-  $("#messagesTemplate").tmpl(message).appendTo("#messages");
+  $("#application_messages").empty();
+  $("#messagesTemplate").tmpl(message).appendTo("#application_messages");
 
   // append new image
   var new_work_graphic = [
@@ -158,7 +158,7 @@ function reloadPage(){
   enableFormElements();
   imageDeleteHook();
   cleanInputs();
-  $.nmTop().close();
+  modal.close();
   clearTimeout(t);
 }
 

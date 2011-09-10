@@ -21,16 +21,22 @@ $(document).ready(function() {
     fileUploadBuilder = new FileUploadFormBuilder;
     fileUploadBuilder.buildFakeForm();
     fileUploadBuilder.buildForm('file_upload');
+
+    // create factory! factory! factory!
+    modal = new Modal(false);   
+    modal.bindOpenHandler("#contact_anchor");
+    modal.bindCloseHandler();
+
     imageDeleteHook();
     fileUploadHook();
     modalConfig();
 });
 
 function fileUploadHook(){
-  $('form').live('ajax:aborted:file', function(event, elements){
+  /*$('form').live('ajax:aborted:file', function(event, elements){
     // Implement own remote file-transfer handler here for non-blank file inputs
     return false;
-  });
+  });*/
 }
 
 function imageDeleteHook(){
@@ -40,25 +46,11 @@ function imageDeleteHook(){
       var message = [
         { MessageText: data['response']['message'], MessageType: "success" }
       ];
-      $("#messages").empty();
-      $("#messagesTemplate").tmpl(message).appendTo("#messages");
-      t=setTimeout("delayedModalClose()",1000);
+      $("#application_messages").empty();
+      $("#messagesTemplate").tmpl(message).appendTo("#application_messages");
+      t=setTimeout((function(){window.modal.close();})(),1000);
     });
   }
-}
-
-function delayedModalClose(){
-  $.nmTop().close();
-  /*var modal =  $('.nyroModalBg');
-  if(modal){
-    var parentElement = modal.parent();
-    if(parentElement && parentElement.is('div')){
-      var grandpa = parentElement.parent();
-      if(grandpa && grandpa.is('div')){
-        grandpa.remove();
-      }
-    }
-  }*/
 }
 
 function modalConfig(){

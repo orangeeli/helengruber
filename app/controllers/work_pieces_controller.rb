@@ -17,6 +17,8 @@ class WorkPiecesController < ApplicationController
     end
 
     @sections = Section.all
+ 
+    #flash[:notice] = "teste"
 
     respond_to do |format|
       format.html #index.html.erb
@@ -101,4 +103,11 @@ class WorkPiecesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def search
+  end
+
+  def archive
+  end
+
 end
