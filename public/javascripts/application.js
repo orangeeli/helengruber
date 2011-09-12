@@ -16,8 +16,11 @@
 
 // implement chain in javascript (javascript should be cached and accessible once the page loads)
 
+// create chain of responsability. Chain of responsability, chain of responsability, chain of responsability
 $(document).ready(function() {
     // should be done only once in the application
+
+    // should only run when form with file upload exists in the document
     fileUploadBuilder = new FileUploadFormBuilder;
     fileUploadBuilder.buildFakeForm();
     fileUploadBuilder.buildForm('file_upload');
@@ -28,6 +31,7 @@ $(document).ready(function() {
     modal.bindCloseHandler();
 
     imageDeleteHook();
+    sendMessageHook();
     fileUploadHook();
     modalConfig();
 });
@@ -53,9 +57,51 @@ function imageDeleteHook(){
   }
 }
 
+function sendMessageHook(){
+
+  $('.send_message_form').bind('ajax:success', function(evt, data, status, xhr){
+    var message = [
+      { MessageText: 'Successfuly Sent', MessageType: "success" }
+    ];
+    $("#send_message_feedback").empty();
+    $("#messagesTemplate").tmpl(message).appendTo("#send_message_feedback");
+
+    // create util singleton that will have set message method (args:: setIn, message array)
+    var messagesSelector = "div[id='flash_success'], div[id='flash_notice'], div[id='flash_warning'], div[id='flash_error']";
+    var messages = $(messagesSelector);
+    if(messages){
+      messages.each(function(){
+        $(this).delay(2000).fadeOut();
+      });
+    }
+  })
+
+  .bind('ajax:error', function(evt, data, status, xhr){
+    var message = [
+      { MessageText: 'Please try again. Sorry.', MessageType: "error" }
+    ];
+    $("#send_message_feedback").empty();
+    $("#messagesTemplate").tmpl(message).appendTo("#send_message_feedback");
+
+    var messagesSelector = "div[id='flash_success'], div[id='flash_notice'], div[id='flash_warning'], div[id='flash_error']";
+    var messages = $(messagesSelector);
+    if(messages){
+      messages.each(function(){
+        $(this).delay(2000).fadeOut();
+      });
+    }
+  })
+
+  .live('ajax:aborted:required', function(event, elements){
+    elements.each(function(){
+      $(this).addClass('blank-required');
+    });
+  });
+}
+
 function modalConfig(){
   // set some options
-  $.nmObj({});
+/*  $.nmObj({});
 
   // set opacity to 50% instead of the 75%
   $.nmAnims({
@@ -64,6 +110,6 @@ function modalConfig(){
         nm.elts.bg.fadeTo(250, 0.5, clb);
       }
     }
-  });
+  });*/
 }
 

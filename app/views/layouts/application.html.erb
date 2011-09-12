@@ -6,13 +6,10 @@
     <meta name="description" content="Helen Gruber Infographics">
     <%= csrf_meta_tag %>
     <%= stylesheet_link_tag "freestyle" %>
-    <%= stylesheet_link_tag "nyroModal" %>
-    <!--script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script-->
-    <!--%= javascript_include_tag :defaults %-->
-    <%= javascript_include_tag "jquery" %>
-    <%= javascript_include_tag "jquery.nyroModal.custom" %>
-    <%= javascript_include_tag "jquery_ujs" %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag :defaults %>
+    <!--%= javascript_include_tag "jquery" %-->
+    <!--%= javascript_include_tag "jquery_ujs" %-->
+    <!--%= javascript_include_tag "application" %-->
     <%= javascript_include_tag "util" %>
     <%= javascript_include_tag "custom_drop_down" %>
     <%= javascript_include_tag "iWidget" %>
@@ -27,8 +24,6 @@
   	  <% if current_user %>
     	    Logged in as <%= current_user.email %>.
     	  <%= link_to "Log out", log_out_path %>
-  	<% else %>
-    	  <!--%= link_to "log in", log_in_path %-->
         <% end %>
       </div>
       <div id="menu">
@@ -112,44 +107,7 @@
 
   </div>
   <script type="text/javascript">
-    $('.send_message_form').bind('ajax:success', function(evt, data, status, xhr){
-      var message = [
-        { MessageText: 'Successfuly Sent', MessageType: "success" }
-      ];
-      $("#send_message_feedback").empty();
-      $("#messagesTemplate").tmpl(message).appendTo("#send_message_feedback");
-
-      // create util singleton that will have set message method (args:: setIn, message array)
-      var messagesSelector = "div[id='flash_success'], div[id='flash_notice'], div[id='flash_warning'], div[id='flash_error']";
-      var messages = $(messagesSelector);
-      if(messages){
-        messages.each(function(){
-          $(this).delay(2000).fadeOut();
-        });
-      }
-    })
-
-    .bind('ajax:error', function(evt, data, status, xhr){
-      var message = [
-        { MessageText: 'Please try again. Sorry.', MessageType: "error" }
-      ];
-      $("#send_message_feedback").empty();
-      $("#messagesTemplate").tmpl(message).appendTo("#send_message_feedback");
-
-      var messagesSelector = "div[id='flash_success'], div[id='flash_notice'], div[id='flash_warning'], div[id='flash_error']";
-      var messages = $(messagesSelector);
-      if(messages){
-        messages.each(function(){
-          $(this).delay(2000).fadeOut();
-        });
-      }
-    });
-
-    $('.send_message_form').live('ajax:aborted:required', function(event, elements){
-      elements.each(function(){
-        $(this).addClass('blank-required');
-      });
-    });
+    
     
   </script>
   <a class="loaderFeedbackAnchor" href="#loaderFeedback" style="display:none;">loaderFeedback anchor</a>
