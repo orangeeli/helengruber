@@ -372,6 +372,11 @@ input.file {
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
   box-sizing:border-box;
+
+  -moz-box-shadow: 0px 1px 1px 1px #b9b8b6; /* FF */
+  -webkit-box-shadow: 0px 1px 1px 1px #b9b8b6; /* chrome safari */
+  box-shadow: 0px 1px 1px 1px #b9b8b6; /* Opera and rest of the happy bunch. standard */
+
 }
 .custom_select li{
   height:35px;

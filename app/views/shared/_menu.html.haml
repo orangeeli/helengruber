@@ -1,0 +1,17 @@
+#main_menu
+  #home.menu_link
+    -#<!--a rel="home" href="/">Helen Gruber</a-->
+    = link_to 'Helen Gruber', root_path
+    -#<!-- 77.65px -->
+  #work
+    %ul
+      -@sections.each do |section|
+        %li.menu_link
+          -#<!--a rel="infographics" href="#">Infographics</a-->
+          = link_to_section section.name.capitalize!, @current_section_id, section
+        
+  #contact.menu_link
+    %a#contact_anchor.nyroModal{:rel => "contact", :href=>"#contact_details"} Contact
+    -#<!-- 45px -->
+#sub_menu
+#sections
