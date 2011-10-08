@@ -369,6 +369,9 @@ input.file {
   padding: 0;
   list-style:none;
   list-style-type: none;
+
+  z-index:100;
+
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
   box-sizing:border-box;

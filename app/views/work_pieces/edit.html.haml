@@ -1,0 +1,12 @@
+= content_for :menu do
+  = render "shared/menu"
+
+.action_header
+  %h1 Editing Work Piece
+
+= render 'form'
+
+.actions
+  = link_to 'Show', @work_piece 
+  |
+  = link_to 'Back', work_pieces_path

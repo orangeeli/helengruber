@@ -1,0 +1,35 @@
+- content_for :menu do
+  = render "shared/menu"
+
+
+- @work_pieces.each do |work_piece|
+  .content
+    .workpiece-holder
+      - work_piece.work_graphics.each do |work_graphic|
+        .outer-border
+          .inner-border
+            %img{:src =>"#{work_graphic.graphic_file}", :alt=>"Work piece test"}
+  .workpiece-description
+    = work_piece.content
+  .workpiece-metainfo
+    = work_piece.title
+    = work_piece.name
+
+  - if current_user
+    .actions
+      = link_to 'Show', work_piece
+      &nbsp;|&nbsp; 
+      = link_to 'Edit', edit_work_piece_path(work_piece) 
+      &nbsp;|&nbsp;
+      = link_to 'Destroy', work_piece, :confirm => 'Are you sure?', :method => :delete
+
+    -#<!--div class="delete_button">
+    -#  <!--%= button_to "Delete", work_piece, :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?" %-->
+    -#<!--/div-->
+
+- if current_user
+  .actions_new 
+    = link_to 'New Work piece', new_work_piece_path
+
+.pagination
+  = will_paginate @work_pieces, :params => {:section_id => @current_section_id}
